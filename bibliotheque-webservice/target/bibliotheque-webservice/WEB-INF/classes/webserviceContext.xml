@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			 xmlns:context="http://www.springframework.org/schema/context"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context
+       			http://www.springframework.org/schema/context/spring-context.xsd">
+
+		<!-- Prend en compte la configuration des injections (@Inject...) -->
+    <context:annotation-config/>
+
+    <!-- Scanne les packages pour trouver les beans qui se déclarent (@Named...) -->
+    <context:component-scan base-package="com.ocp4.webservice."/>
+    
+    
+    <!-- Chargement du fichier properties contenant la configuration de la datasource -->
+    <bean id="dataSourceProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+        <property name="location" value="file:D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-webservice\src\data\conf\db.properties"/>
+    </bean>
+    
+    <!-- Création de la config hikari -->
+    <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+        <constructor-arg ref="dataSourceProperties"/>
+    </bean>
+
+    <!-- Création de la datasource hikari -->
+    <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
+        <constructor-arg ref="hikariConfig"/>
+    </bean>
+				
+</beans>

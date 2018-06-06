@@ -1,0 +1,15 @@
+body {
+  padding-top: 4rem;
+}
+
+main {
+  padding: 1rem 0rem;
+}
+
+.col-form-label{
+	font-weight: bold
+}
+
+#dropdownInfos {
+	color: #17a2b8;
+}

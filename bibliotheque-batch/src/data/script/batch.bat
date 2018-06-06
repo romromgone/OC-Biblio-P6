@@ -1,0 +1,1 @@
+start javaw -jar ../lib/bibliotheque-batch-0.0.1-SNAPSHOT.jar

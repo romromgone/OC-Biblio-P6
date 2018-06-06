@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	  <modelVersion>4.0.0</modelVersion>
+	
+	  <groupId>com.ocp4</groupId>
+	  <artifactId>bibliotheque</artifactId>
+	  <version>0.0.1-SNAPSHOT</version>
+	  <packaging>pom</packaging>
+	
+	  <name>SI Bibliothèque</name>
+	  <url>http://maven.apache.org</url>
+	
+	
+	  <properties>
+	    	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	  </properties>
+
+		
+		<dependencyManagement>	
+			  <dependencies>
+				    <!-- ======= Modules ======= -->
+				    <dependency>
+				        <groupId>com.ocp4</groupId>
+				        <artifactId>bibliotheque-webservice</artifactId>
+				        <version>0.0.1-SNAPSHOT</version>
+				    </dependency>
+				    <dependency>
+				        <groupId>com.ocp4</groupId>
+				        <artifactId>bibliotheque-webapp</artifactId>
+				        <version>0.0.1-SNAPSHOT</version>
+				    </dependency> 
+				    <dependency>
+				        <groupId>com.ocp4</groupId>
+				        <artifactId>bibliotheque-batch</artifactId>
+				        <version>0.0.1-SNAPSHOT</version>
+				    </dependency> 
+				    <!-- ======= Lib ======= -->	 
+				    <!-- PostgreSql -->	
+				    <dependency>
+		            <groupId>org.postgresql</groupId>
+		            <artifactId>postgresql</artifactId>
+		            <version>42.2.2</version>
+		            <scope>runtime</scope>
+    				</dependency>	   
+    				<!-- HikariCP -->
+				    <dependency>
+						    <groupId>com.zaxxer</groupId>
+						    <artifactId>HikariCP</artifactId>
+						    <version>3.1.0</version>
+						</dependency>
+						<dependency>
+						    <groupId>org.slf4j</groupId>
+						    <artifactId>slf4j-simple</artifactId>
+						    <version>1.7.25</version>
+						</dependency>
+				    <!-- Spring BOM -->	
+				    <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-framework-bom</artifactId>
+                <version>5.0.5.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency> 
+            <!-- JSR-250 -->
+						<dependency>
+						    <groupId>javax.annotation</groupId>
+						    <artifactId>javax.annotation-api</artifactId>
+						    <version>1.3.2</version>
+						</dependency>
+						<!-- JSR-330 -->
+						<dependency>
+						    <groupId>javax.inject</groupId>
+						    <artifactId>javax.inject</artifactId>
+						    <version>1</version>
+						</dependency>
+						<!-- JavaEE -->	
+            <dependency>
+					  		<groupId>javax</groupId>
+				     		<artifactId>javaee-web-api</artifactId>
+					 		  <version>8.0</version>
+					  	  <scope>provided</scope>
+						</dependency> 	
+						<!-- JSTL -->
+						<dependency>
+					      <groupId>javax.servlet</groupId>
+					      <artifactId>jstl</artifactId>
+					      <version>1.2</version>
+						</dependency>
+						<!-- Framework Apache Struts -->
+            <dependency>
+                <groupId>org.apache.struts</groupId>
+                <artifactId>struts2-bom</artifactId>
+                <version>2.5.16</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- Gestion des logs avec Log4j -->
+            <dependency>
+                <groupId>commons-logging</groupId>
+                <artifactId>commons-logging</artifactId>
+                <version>1.2</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-core</artifactId>
+                <version>2.11.0</version>
+                <scope>runtime</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-jcl</artifactId>
+                <version>2.11.0</version>
+                <scope>runtime</scope>
+            </dependency>
+            <!-- Bootstrap -->	
+		        <dependency>
+					      <groupId>org.webjars</groupId>
+					      <artifactId>bootstrap</artifactId>
+					      <version>4.0.0-beta.2</version>
+		    		</dependency> 
+		    		<!-- JQuery -->	
+		        <dependency>
+					      <groupId>org.webjars</groupId>
+					      <artifactId>jquery</artifactId>
+					      <version>3.2.1</version> 
+		   	 		</dependency>
+		   	 		<!-- Jasypt -->	
+		   	 		<dependency>
+					    	<groupId>org.jasypt</groupId>
+					    	<artifactId>jasypt</artifactId>
+					    	<version>1.9.2</version>
+						</dependency>	 
+						<!-- JUnit -->				
+						<dependency>
+					      <groupId>junit</groupId>
+					      <artifactId>junit</artifactId>
+					      <version>3.8.1</version>
+					      <scope>test</scope>
+		    		</dependency>    		
+			  </dependencies>
+	  </dependencyManagement>	
+	  
+	  
+	  <modules>
+				<module>bibliotheque-webservice</module>			
+				<module>bibliotheque-webapp</module>
+   			<module>bibliotheque-batch</module>
+  	</modules>
+	  
+	  
+</project>

@@ -1,0 +1,20 @@
+<assembly xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns="http://maven.apache.org/ASSEMBLY/2.0.0"
+          xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.0.0 http://maven.apache.org/xsd/assembly-2.0.0.xsd">
+
+    <!-- Identifiant de l'assemblage -->
+    <id>archive-deploy</id>
+
+    <!-- Les formats d'archive à générer -->
+    <formats>
+        <format>zip</format>
+    </formats>
+
+    <fileSets>
+        <!-- Fichiers de configuration -->
+        <fileSet>
+            <directory>src/data/conf</directory>
+            <outputDirectory>conf</outputDirectory>
+        </fileSet>
+    </fileSets>
+</assembly>

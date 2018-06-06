@@ -1,0 +1,259 @@
+
+package generated.clientserviceOuvrage;
+
+import javax.xml.bind.JAXBElement;
+import javax.xml.bind.annotation.XmlElementDecl;
+import javax.xml.bind.annotation.XmlRegistry;
+import javax.xml.namespace.QName;
+
+
+/**
+ * This object contains factory methods for each 
+ * Java content interface and Java element interface 
+ * generated in the generated.clientserviceOuvrage package. 
+ * <p>An ObjectFactory allows you to programatically 
+ * construct new instances of the Java representation 
+ * for XML content. The Java representation of XML 
+ * content can consist of schema derived interfaces 
+ * and classes representing the binding of schema 
+ * type definitions, element declarations and model 
+ * groups.  Factory methods for each of these are 
+ * provided in this class.
+ * 
+ */
+@XmlRegistry
+public class ObjectFactory {
+
+    private final static QName _RechercherParAuteurResponse_QNAME = new QName("http://services.webservice.ocp4.com/", "rechercherParAuteurResponse");
+    private final static QName _ListerToutResponse_QNAME = new QName("http://services.webservice.ocp4.com/", "listerToutResponse");
+    private final static QName _RechercherParTitreResponse_QNAME = new QName("http://services.webservice.ocp4.com/", "rechercherParTitreResponse");
+    private final static QName _TrouverOuvrageResponse_QNAME = new QName("http://services.webservice.ocp4.com/", "trouverOuvrageResponse");
+    private final static QName _ListerTout_QNAME = new QName("http://services.webservice.ocp4.com/", "listerTout");
+    private final static QName _RechercherParClassification_QNAME = new QName("http://services.webservice.ocp4.com/", "rechercherParClassification");
+    private final static QName _RechercherParTitre_QNAME = new QName("http://services.webservice.ocp4.com/", "rechercherParTitre");
+    private final static QName _RechercherParAuteur_QNAME = new QName("http://services.webservice.ocp4.com/", "rechercherParAuteur");
+    private final static QName _RechercherParTitreEtAuteurResponse_QNAME = new QName("http://services.webservice.ocp4.com/", "rechercherParTitreEtAuteurResponse");
+    private final static QName _TrouverOuvrage_QNAME = new QName("http://services.webservice.ocp4.com/", "trouverOuvrage");
+    private final static QName _RechercherParClassificationResponse_QNAME = new QName("http://services.webservice.ocp4.com/", "rechercherParClassificationResponse");
+    private final static QName _RechercherParTitreEtAuteur_QNAME = new QName("http://services.webservice.ocp4.com/", "rechercherParTitreEtAuteur");
+
+    /**
+     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: generated.clientserviceOuvrage
+     * 
+     */
+    public ObjectFactory() {
+    }
+
+    /**
+     * Create an instance of {@link RechercherParTitreEtAuteur }
+     * 
+     */
+    public RechercherParTitreEtAuteur createRechercherParTitreEtAuteur() {
+        return new RechercherParTitreEtAuteur();
+    }
+
+    /**
+     * Create an instance of {@link RechercherParAuteur }
+     * 
+     */
+    public RechercherParAuteur createRechercherParAuteur() {
+        return new RechercherParAuteur();
+    }
+
+    /**
+     * Create an instance of {@link RechercherParTitreEtAuteurResponse }
+     * 
+     */
+    public RechercherParTitreEtAuteurResponse createRechercherParTitreEtAuteurResponse() {
+        return new RechercherParTitreEtAuteurResponse();
+    }
+
+    /**
+     * Create an instance of {@link TrouverOuvrage }
+     * 
+     */
+    public TrouverOuvrage createTrouverOuvrage() {
+        return new TrouverOuvrage();
+    }
+
+    /**
+     * Create an instance of {@link RechercherParClassificationResponse }
+     * 
+     */
+    public RechercherParClassificationResponse createRechercherParClassificationResponse() {
+        return new RechercherParClassificationResponse();
+    }
+
+    /**
+     * Create an instance of {@link ListerTout }
+     * 
+     */
+    public ListerTout createListerTout() {
+        return new ListerTout();
+    }
+
+    /**
+     * Create an instance of {@link RechercherParClassification }
+     * 
+     */
+    public RechercherParClassification createRechercherParClassification() {
+        return new RechercherParClassification();
+    }
+
+    /**
+     * Create an instance of {@link RechercherParTitre }
+     * 
+     */
+    public RechercherParTitre createRechercherParTitre() {
+        return new RechercherParTitre();
+    }
+
+    /**
+     * Create an instance of {@link RechercherParAuteurResponse }
+     * 
+     */
+    public RechercherParAuteurResponse createRechercherParAuteurResponse() {
+        return new RechercherParAuteurResponse();
+    }
+
+    /**
+     * Create an instance of {@link ListerToutResponse }
+     * 
+     */
+    public ListerToutResponse createListerToutResponse() {
+        return new ListerToutResponse();
+    }
+
+    /**
+     * Create an instance of {@link RechercherParTitreResponse }
+     * 
+     */
+    public RechercherParTitreResponse createRechercherParTitreResponse() {
+        return new RechercherParTitreResponse();
+    }
+
+    /**
+     * Create an instance of {@link TrouverOuvrageResponse }
+     * 
+     */
+    public TrouverOuvrageResponse createTrouverOuvrageResponse() {
+        return new TrouverOuvrageResponse();
+    }
+
+    /**
+     * Create an instance of {@link Ouvrage }
+     * 
+     */
+    public Ouvrage createOuvrage() {
+        return new Ouvrage();
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link RechercherParAuteurResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://services.webservice.ocp4.com/", name = "rechercherParAuteurResponse")
+    public JAXBElement<RechercherParAuteurResponse> createRechercherParAuteurResponse(RechercherParAuteurResponse value) {
+        return new JAXBElement<RechercherParAuteurResponse>(_RechercherParAuteurResponse_QNAME, RechercherParAuteurResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ListerToutResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://services.webservice.ocp4.com/", name = "listerToutResponse")
+    public JAXBElement<ListerToutResponse> createListerToutResponse(ListerToutResponse value) {
+        return new JAXBElement<ListerToutResponse>(_ListerToutResponse_QNAME, ListerToutResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link RechercherParTitreResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://services.webservice.ocp4.com/", name = "rechercherParTitreResponse")
+    public JAXBElement<RechercherParTitreResponse> createRechercherParTitreResponse(RechercherParTitreResponse value) {
+        return new JAXBElement<RechercherParTitreResponse>(_RechercherParTitreResponse_QNAME, RechercherParTitreResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link TrouverOuvrageResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://services.webservice.ocp4.com/", name = "trouverOuvrageResponse")
+    public JAXBElement<TrouverOuvrageResponse> createTrouverOuvrageResponse(TrouverOuvrageResponse value) {
+        return new JAXBElement<TrouverOuvrageResponse>(_TrouverOuvrageResponse_QNAME, TrouverOuvrageResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ListerTout }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://services.webservice.ocp4.com/", name = "listerTout")
+    public JAXBElement<ListerTout> createListerTout(ListerTout value) {
+        return new JAXBElement<ListerTout>(_ListerTout_QNAME, ListerTout.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link RechercherParClassification }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://services.webservice.ocp4.com/", name = "rechercherParClassification")
+    public JAXBElement<RechercherParClassification> createRechercherParClassification(RechercherParClassification value) {
+        return new JAXBElement<RechercherParClassification>(_RechercherParClassification_QNAME, RechercherParClassification.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link RechercherParTitre }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://services.webservice.ocp4.com/", name = "rechercherParTitre")
+    public JAXBElement<RechercherParTitre> createRechercherParTitre(RechercherParTitre value) {
+        return new JAXBElement<RechercherParTitre>(_RechercherParTitre_QNAME, RechercherParTitre.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link RechercherParAuteur }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://services.webservice.ocp4.com/", name = "rechercherParAuteur")
+    public JAXBElement<RechercherParAuteur> createRechercherParAuteur(RechercherParAuteur value) {
+        return new JAXBElement<RechercherParAuteur>(_RechercherParAuteur_QNAME, RechercherParAuteur.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link RechercherParTitreEtAuteurResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://services.webservice.ocp4.com/", name = "rechercherParTitreEtAuteurResponse")
+    public JAXBElement<RechercherParTitreEtAuteurResponse> createRechercherParTitreEtAuteurResponse(RechercherParTitreEtAuteurResponse value) {
+        return new JAXBElement<RechercherParTitreEtAuteurResponse>(_RechercherParTitreEtAuteurResponse_QNAME, RechercherParTitreEtAuteurResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link TrouverOuvrage }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://services.webservice.ocp4.com/", name = "trouverOuvrage")
+    public JAXBElement<TrouverOuvrage> createTrouverOuvrage(TrouverOuvrage value) {
+        return new JAXBElement<TrouverOuvrage>(_TrouverOuvrage_QNAME, TrouverOuvrage.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link RechercherParClassificationResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://services.webservice.ocp4.com/", name = "rechercherParClassificationResponse")
+    public JAXBElement<RechercherParClassificationResponse> createRechercherParClassificationResponse(RechercherParClassificationResponse value) {
+        return new JAXBElement<RechercherParClassificationResponse>(_RechercherParClassificationResponse_QNAME, RechercherParClassificationResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link RechercherParTitreEtAuteur }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://services.webservice.ocp4.com/", name = "rechercherParTitreEtAuteur")
+    public JAXBElement<RechercherParTitreEtAuteur> createRechercherParTitreEtAuteur(RechercherParTitreEtAuteur value) {
+        return new JAXBElement<RechercherParTitreEtAuteur>(_RechercherParTitreEtAuteur_QNAME, RechercherParTitreEtAuteur.class, null, value);
+    }
+
+}
