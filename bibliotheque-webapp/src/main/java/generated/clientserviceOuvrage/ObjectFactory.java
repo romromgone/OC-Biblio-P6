@@ -29,12 +29,10 @@ public class ObjectFactory {
     private final static QName _RechercherParTitreResponse_QNAME = new QName("http://services.webservice.ocp4.com/", "rechercherParTitreResponse");
     private final static QName _TrouverOuvrageResponse_QNAME = new QName("http://services.webservice.ocp4.com/", "trouverOuvrageResponse");
     private final static QName _ListerTout_QNAME = new QName("http://services.webservice.ocp4.com/", "listerTout");
-    private final static QName _RechercherParClassification_QNAME = new QName("http://services.webservice.ocp4.com/", "rechercherParClassification");
     private final static QName _RechercherParTitre_QNAME = new QName("http://services.webservice.ocp4.com/", "rechercherParTitre");
     private final static QName _RechercherParAuteur_QNAME = new QName("http://services.webservice.ocp4.com/", "rechercherParAuteur");
     private final static QName _RechercherParTitreEtAuteurResponse_QNAME = new QName("http://services.webservice.ocp4.com/", "rechercherParTitreEtAuteurResponse");
     private final static QName _TrouverOuvrage_QNAME = new QName("http://services.webservice.ocp4.com/", "trouverOuvrage");
-    private final static QName _RechercherParClassificationResponse_QNAME = new QName("http://services.webservice.ocp4.com/", "rechercherParClassificationResponse");
     private final static QName _RechercherParTitreEtAuteur_QNAME = new QName("http://services.webservice.ocp4.com/", "rechercherParTitreEtAuteur");
 
     /**
@@ -77,27 +75,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link RechercherParClassificationResponse }
-     * 
-     */
-    public RechercherParClassificationResponse createRechercherParClassificationResponse() {
-        return new RechercherParClassificationResponse();
-    }
-
-    /**
      * Create an instance of {@link ListerTout }
      * 
      */
     public ListerTout createListerTout() {
         return new ListerTout();
-    }
-
-    /**
-     * Create an instance of {@link RechercherParClassification }
-     * 
-     */
-    public RechercherParClassification createRechercherParClassification() {
-        return new RechercherParClassification();
     }
 
     /**
@@ -194,15 +176,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link RechercherParClassification }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://services.webservice.ocp4.com/", name = "rechercherParClassification")
-    public JAXBElement<RechercherParClassification> createRechercherParClassification(RechercherParClassification value) {
-        return new JAXBElement<RechercherParClassification>(_RechercherParClassification_QNAME, RechercherParClassification.class, null, value);
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link RechercherParTitre }{@code >}}
      * 
      */
@@ -236,15 +209,6 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://services.webservice.ocp4.com/", name = "trouverOuvrage")
     public JAXBElement<TrouverOuvrage> createTrouverOuvrage(TrouverOuvrage value) {
         return new JAXBElement<TrouverOuvrage>(_TrouverOuvrage_QNAME, TrouverOuvrage.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link RechercherParClassificationResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://services.webservice.ocp4.com/", name = "rechercherParClassificationResponse")
-    public JAXBElement<RechercherParClassificationResponse> createRechercherParClassificationResponse(RechercherParClassificationResponse value) {
-        return new JAXBElement<RechercherParClassificationResponse>(_RechercherParClassificationResponse_QNAME, RechercherParClassificationResponse.class, null, value);
     }
 
     /**

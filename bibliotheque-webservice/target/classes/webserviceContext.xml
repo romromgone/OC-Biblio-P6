@@ -17,7 +17,7 @@
     
     <!-- Chargement du fichier properties contenant la configuration de la datasource -->
     <bean id="dataSourceProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
-        <property name="location" value="file:D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-webservice\src\data\conf\db.properties"/>
+        <property name="location" value="file:${USERPROFILE}/bibliotheque-webservice/db.properties"/>
     </bean>
     
     <!-- Création de la config hikari -->

@@ -25,7 +25,7 @@ public class OuvrageService extends AbstractService {
 	
 	@WebMethod
 	public List<Ouvrage> rechercherParTitre(String titre) {
-		List<Ouvrage> ouvrages = getDaoFactory().getOuvrageDao().listerTout();
+		List<Ouvrage> ouvrages = getDaoFactory().getOuvrageDao().rechercherParTitre(titre);
 		return ouvrages;
 	}
 	
@@ -38,12 +38,6 @@ public class OuvrageService extends AbstractService {
 	@WebMethod
 	public List<Ouvrage> rechercherParTitreEtAuteur(String titre, String auteur) {
 		List<Ouvrage> ouvrages = getDaoFactory().getOuvrageDao().rechercherParTitreEtAuteur(titre, auteur);
-		return ouvrages;
-	}
-	
-	@WebMethod
-	public List<Ouvrage> rechercherParClassification(String classification) {
-		List<Ouvrage> ouvrages = getDaoFactory().getOuvrageDao().rechercherParClassification(classification);
 		return ouvrages;
 	}
 }

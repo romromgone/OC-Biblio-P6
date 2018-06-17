@@ -10,7 +10,6 @@ D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-webapp
 D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-webapp\src\main\java\generated\clientserviceUsager\ObjectFactory.java
 D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-webapp\src\main\java\generated\clientserviceEmprunt\ParseException_Exception.java
 D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-webapp\src\main\java\generated\clientserviceOuvrage\RechercherParTitreEtAuteur.java
-D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-webapp\src\main\java\generated\clientserviceEmprunt\EnCoursPourExemplaire.java
 D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-webapp\src\main\java\generated\clientserviceEmprunt\package-info.java
 D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-webapp\src\main\java\generated\clientserviceOuvrage\OuvrageService_Service.java
 D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-webapp\src\main\java\generated\clientserviceExemplaire\ObjectFactory.java
@@ -25,7 +24,6 @@ D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-webapp
 D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-webapp\src\main\java\generated\clientserviceEmprunt\ListerNonRendusParUsager.java
 D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-webapp\src\main\java\generated\clientserviceUsager\UsagerService.java
 D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-webapp\src\main\java\generated\clientserviceEmprunt\ListerEnCoursParUsagerResponse.java
-D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-webapp\src\main\java\generated\clientserviceEmprunt\EnCoursPourExemplaireResponse.java
 D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-webapp\src\main\java\com\ocp4\webapp\actions\InfosPersosAction.java
 D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-webapp\src\main\java\generated\clientserviceEdition\EditionService_Service.java
 D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-webapp\src\main\java\generated\clientserviceOuvrage\RechercherParTitre.java
@@ -36,7 +34,6 @@ D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-webapp
 D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-webapp\src\main\java\generated\clientserviceUsager\UsagerService_Service.java
 D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-webapp\src\main\java\generated\clientserviceEmprunt\EmpruntService.java
 D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-webapp\src\main\java\generated\clientserviceOuvrage\RechercherParAuteur.java
-D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-webapp\src\main\java\generated\clientserviceOuvrage\RechercherParClassification.java
 D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-webapp\src\main\java\com\ocp4\webapp\actions\ConnexionAction.java
 D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-webapp\src\main\java\generated\clientserviceExemplaire\ExemplaireService.java
 D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-webapp\src\main\java\generated\clientserviceExemplaire\ListerParEdition.java
@@ -59,7 +56,6 @@ D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-webapp
 D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-webapp\src\main\java\generated\clientserviceOuvrage\OuvrageService.java
 D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-webapp\src\main\java\generated\clientserviceOuvrage\ListerTout.java
 D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-webapp\src\main\java\generated\clientserviceEmprunt\Ouvrage.java
-D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-webapp\src\main\java\generated\clientserviceOuvrage\RechercherParClassificationResponse.java
 D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-webapp\src\main\java\generated\clientserviceEmprunt\EmpruntService_Service.java
 D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-webapp\src\main\java\generated\clientserviceExemplaire\package-info.java
 D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-webapp\src\main\java\generated\clientserviceOuvrage\TrouverOuvrageResponse.java

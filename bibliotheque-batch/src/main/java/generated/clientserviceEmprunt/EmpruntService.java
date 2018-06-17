@@ -30,16 +30,16 @@ public interface EmpruntService {
      * 
      * @param arg0
      * @return
-     *     returns java.lang.Boolean
+     *     returns java.util.List<generated.clientserviceEmprunt.Emprunt>
      */
-    @WebMethod(operationName = "EnCoursPourExemplaire")
+    @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "EnCoursPourExemplaire", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceEmprunt.EnCoursPourExemplaire")
-    @ResponseWrapper(localName = "EnCoursPourExemplaireResponse", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceEmprunt.EnCoursPourExemplaireResponse")
-    @Action(input = "http://services.webservice.ocp4.com/EmpruntService/EnCoursPourExemplaireRequest", output = "http://services.webservice.ocp4.com/EmpruntService/EnCoursPourExemplaireResponse")
-    public Boolean enCoursPourExemplaire(
+    @RequestWrapper(localName = "listerNonRendusParUsager", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceEmprunt.ListerNonRendusParUsager")
+    @ResponseWrapper(localName = "listerNonRendusParUsagerResponse", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceEmprunt.ListerNonRendusParUsagerResponse")
+    @Action(input = "http://services.webservice.ocp4.com/EmpruntService/listerNonRendusParUsagerRequest", output = "http://services.webservice.ocp4.com/EmpruntService/listerNonRendusParUsagerResponse")
+    public List<Emprunt> listerNonRendusParUsager(
         @WebParam(name = "arg0", targetNamespace = "")
-        Integer arg0);
+        String arg0);
 
     /**
      * 
@@ -53,21 +53,6 @@ public interface EmpruntService {
     @ResponseWrapper(localName = "listerEnCoursParUsagerResponse", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceEmprunt.ListerEnCoursParUsagerResponse")
     @Action(input = "http://services.webservice.ocp4.com/EmpruntService/listerEnCoursParUsagerRequest", output = "http://services.webservice.ocp4.com/EmpruntService/listerEnCoursParUsagerResponse")
     public List<Emprunt> listerEnCoursParUsager(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0);
-
-    /**
-     * 
-     * @param arg0
-     * @return
-     *     returns java.util.List<generated.clientserviceEmprunt.Emprunt>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listerNonRendusParUsager", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceEmprunt.ListerNonRendusParUsager")
-    @ResponseWrapper(localName = "listerNonRendusParUsagerResponse", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceEmprunt.ListerNonRendusParUsagerResponse")
-    @Action(input = "http://services.webservice.ocp4.com/EmpruntService/listerNonRendusParUsagerRequest", output = "http://services.webservice.ocp4.com/EmpruntService/listerNonRendusParUsagerResponse")
-    public List<Emprunt> listerNonRendusParUsager(
         @WebParam(name = "arg0", targetNamespace = "")
         String arg0);
 

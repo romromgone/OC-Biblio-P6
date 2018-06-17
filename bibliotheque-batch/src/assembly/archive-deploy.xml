@@ -19,14 +19,6 @@
     </dependencySets>
 
     <fileSets>
-     		<!-- Scripts shell de lancement -->
-        <fileSet>
-            <directory>src/data/script</directory>
-            <outputDirectory>bin</outputDirectory>
-            <!-- Droits UNIX sur les fichiers (-rwx-rx-rx) -->
-            <fileMode>0755</fileMode>
-        </fileSet>
-        
         <!-- Fichiers de configuration -->
         <fileSet>
             <directory>src/data/conf</directory>

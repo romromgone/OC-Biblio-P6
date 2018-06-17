@@ -14,14 +14,13 @@
 			
 	   	<div class="offset-md-1 col-md-10">
 	     	<div class="card">
-	 				<div class="card-header ">Rechercher un ouvrage pour voir le nombre d'exemplaires disponibles</div>
+	 				<div class="card-header ">Entrer le titre et l'auteur de l'ouvrage pour faire une rechercher</div>
 	 				<div class="card-body col-md-12">
 						<p></p>
 						<div class="row">
 							<s:form method="post" action="rechercher" id="rechercheForm" name="rechercheForm" >		  					
 								<s:textfield class="form-control mr-md-2" name="titre" id="titre" label="Titre"/>
 								<s:textfield class="form-control mr-md-2" name="auteur" id="auteur" label="Auteur"/>
-								<s:textfield class="form-control mr-md-2" name="classification" id="classification"  label="Classification" placeholder="ex 840-Litté française"/>
 								<s:submit class="btn btn-info" value="Rechercher" />	
 							</s:form>								
 						</div>									
@@ -40,20 +39,21 @@
 							    </tr>
 							  </thead>
 							  <tbody>
-							  	<s:iterator value="listeRechercheOuvrages"> 		       					
-								    <tr>
-								      <td><s:property value="titre" /></td>
-								      <td><s:property value="auteur" /></td>
-								      <td><s:property value="classification" /></td>
-								      <td>
-								      	<details>
-												  <summary>Voir la description</summary>
-												  <p><s:property value="resume" /></p>
-												</details>									      	
-								      </td>
-								      <td><s:property value="value" /></td>
-								    </tr>
-							    </s:iterator>							   
+							  <tr>
+							  	<s:iterator value="listeRechercheOuvrages"> 		       									    
+							      <td><s:property value="titre" /></td>
+							      <td><s:property value="auteur" /></td>
+							      <td><s:property value="classification" /></td>
+							      <td>
+							      	<details>
+											  <summary>Voir la description</summary>
+											  <p><s:property value="resume" /></p>
+											</details>									      	
+							      </td>							     
+							      <td><b><s:property value="nbExemplairesDispos" /></b></td>
+				        	</s:iterator>	
+						    </tr>
+							    						   
 							  </tbody>
 							</table>
 						</div>

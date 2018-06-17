@@ -28,7 +28,6 @@ D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-batch\
 D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-batch\src\main\java\generated\clientserviceExemplaire\package-info.java
 D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-batch\src\main\java\generated\clientserviceEmprunt\Exemplaire.java
 D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-batch\src\main\java\generated\clientserviceOuvrage\RechercherParAuteur.java
-D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-batch\src\main\java\generated\clientserviceOuvrage\RechercherParClassificationResponse.java
 D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-batch\src\main\java\generated\clientserviceOuvrage\RechercherParTitre.java
 D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-batch\src\main\java\generated\clientserviceExemplaire\ExemplaireService.java
 D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-batch\src\main\java\generated\clientserviceUsager\ObjectFactory.java
@@ -44,7 +43,6 @@ D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-batch\
 D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-batch\src\main\java\generated\clientserviceOuvrage\RechercherParAuteurResponse.java
 D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-batch\src\main\java\generated\clientserviceEdition\TrouverEdition.java
 D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-batch\src\main\java\generated\clientserviceEmprunt\Emprunt.java
-D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-batch\src\main\java\generated\clientserviceEmprunt\EnCoursPourExemplaireResponse.java
 D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-batch\src\main\java\com\ocp4\batch\BatchApp.java
 D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-batch\src\main\java\com\ocp4\batch\beans\WsdlLocation.java
 D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-batch\src\main\java\generated\clientserviceEmprunt\ObjectFactory.java
@@ -56,14 +54,12 @@ D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-batch\
 D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-batch\src\main\java\generated\clientserviceExemplaire\Edition.java
 D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-batch\src\main\java\generated\clientserviceEmprunt\TrouverEmprunt.java
 D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-batch\src\main\java\generated\clientserviceUsager\package-info.java
-D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-batch\src\main\java\generated\clientserviceOuvrage\RechercherParClassification.java
 D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-batch\src\main\java\generated\clientserviceOuvrage\ListerToutResponse.java
 D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-batch\src\main\java\generated\clientserviceEmprunt\Ouvrage.java
 D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-batch\src\main\java\generated\clientserviceEdition\Ouvrage.java
 D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-batch\src\main\java\generated\clientserviceOuvrage\RechercherParTitreResponse.java
 D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-batch\src\main\java\generated\clientserviceEdition\ListerParOuvrage.java
 D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-batch\src\main\java\generated\clientserviceOuvrage\RechercherParTitreEtAuteurResponse.java
-D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-batch\src\main\java\generated\clientserviceEmprunt\EnCoursPourExemplaire.java
 D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-batch\src\main\java\generated\clientserviceEdition\ListerParOuvrageResponse.java
 D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-batch\src\main\java\generated\clientserviceExemplaire\ExemplaireService_Service.java
 D:\Documents\Romain\Documents\eclipse-workspace\bibliotheque\bibliotheque-batch\src\main\java\generated\clientserviceExemplaire\TrouverExemplaire.java

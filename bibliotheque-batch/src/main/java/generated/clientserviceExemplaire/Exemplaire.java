@@ -17,6 +17,7 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="edition" type="{http://services.webservice.ocp4.com/}edition" minOccurs="0"/>
+ *         &lt;element name="estDisponible" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
  *         &lt;element name="isbn" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
@@ -30,12 +31,14 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "exemplaire", propOrder = {
     "edition",
+    "estDisponible",
     "id",
     "isbn"
 })
 public class Exemplaire {
 
     protected Edition edition;
+    protected Boolean estDisponible;
     protected Integer id;
     protected String isbn;
 
@@ -61,6 +64,30 @@ public class Exemplaire {
      */
     public void setEdition(Edition value) {
         this.edition = value;
+    }
+
+    /**
+     * Obtient la valeur de la propriété estDisponible.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Boolean }
+     *     
+     */
+    public Boolean isEstDisponible() {
+        return estDisponible;
+    }
+
+    /**
+     * Définit la valeur de la propriété estDisponible.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Boolean }
+     *     
+     */
+    public void setEstDisponible(Boolean value) {
+        this.estDisponible = value;
     }
 
     /**

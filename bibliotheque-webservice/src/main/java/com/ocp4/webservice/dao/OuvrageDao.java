@@ -11,5 +11,4 @@ public interface OuvrageDao {
 	List<Ouvrage> rechercherParTitre(String titre);
 	List<Ouvrage> rechercherParAuteur(String auteur);
 	List<Ouvrage> rechercherParTitreEtAuteur(String titre, String auteur);
-	List<Ouvrage> rechercherParClassification(String classification);
 }

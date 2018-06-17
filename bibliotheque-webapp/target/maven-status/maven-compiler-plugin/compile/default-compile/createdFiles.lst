@@ -1,4 +1,3 @@
-generated\clientserviceEmprunt\EnCoursPourExemplaireResponse.class
 generated\clientserviceEmprunt\ListerNonRendusResponse.class
 generated\clientserviceExemplaire\Edition.class
 generated\clientserviceEmprunt\Exemplaire.class
@@ -10,7 +9,6 @@ generated\clientserviceUsager\Usager.class
 com\ocp4\webapp\actions\EmpruntsAction.class
 generated\clientserviceEdition\ListerParOuvrage.class
 generated\clientserviceExemplaire\TrouverExemplaireResponse.class
-generated\clientserviceOuvrage\RechercherParClassification.class
 generated\clientserviceEmprunt\EmpruntService.class
 generated\clientserviceOuvrage\RechercherParTitre.class
 generated\clientserviceEmprunt\Emprunt.class
@@ -27,7 +25,6 @@ generated\clientserviceEdition\package-info.class
 generated\clientserviceEmprunt\TrouverEmprunt.class
 generated\clientserviceEdition\ListerParOuvrageResponse.class
 generated\clientserviceOuvrage\RechercherParAuteurResponse.class
-generated\clientserviceEmprunt\EnCoursPourExemplaire.class
 com\ocp4\webapp\actions\InfosPersosAction.class
 generated\clientserviceEdition\EditionService.class
 generated\clientserviceOuvrage\package-info.class
@@ -49,7 +46,6 @@ generated\clientserviceExemplaire\ListerParEditionResponse.class
 generated\clientserviceOuvrage\OuvrageService.class
 generated\clientserviceExemplaire\ListerParEdition.class
 generated\clientserviceOuvrage\Ouvrage.class
-generated\clientserviceOuvrage\RechercherParClassificationResponse.class
 generated\clientserviceEdition\Ouvrage.class
 generated\clientserviceOuvrage\ObjectFactory.class
 generated\clientserviceEmprunt\ListerEnCoursParUsager.class

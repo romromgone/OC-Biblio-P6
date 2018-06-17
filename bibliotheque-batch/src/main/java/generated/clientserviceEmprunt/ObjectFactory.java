@@ -26,15 +26,13 @@ public class ObjectFactory {
 
     private final static QName _ListerEnCoursParUsagerResponse_QNAME = new QName("http://services.webservice.ocp4.com/", "listerEnCoursParUsagerResponse");
     private final static QName _ListerNonRendusParUsagerResponse_QNAME = new QName("http://services.webservice.ocp4.com/", "listerNonRendusParUsagerResponse");
-    private final static QName _EnCoursPourExemplaire_QNAME = new QName("http://services.webservice.ocp4.com/", "EnCoursPourExemplaire");
-    private final static QName _ListerNonRendus_QNAME = new QName("http://services.webservice.ocp4.com/", "listerNonRendus");
-    private final static QName _ListerNonRendusParUsager_QNAME = new QName("http://services.webservice.ocp4.com/", "listerNonRendusParUsager");
-    private final static QName _TrouverEmprunt_QNAME = new QName("http://services.webservice.ocp4.com/", "trouverEmprunt");
-    private final static QName _EnCoursPourExemplaireResponse_QNAME = new QName("http://services.webservice.ocp4.com/", "EnCoursPourExemplaireResponse");
     private final static QName _ListerEnCoursParUsager_QNAME = new QName("http://services.webservice.ocp4.com/", "listerEnCoursParUsager");
     private final static QName _ListerNonRendusResponse_QNAME = new QName("http://services.webservice.ocp4.com/", "listerNonRendusResponse");
     private final static QName _ParseException_QNAME = new QName("http://services.webservice.ocp4.com/", "ParseException");
+    private final static QName _ListerNonRendus_QNAME = new QName("http://services.webservice.ocp4.com/", "listerNonRendus");
+    private final static QName _ListerNonRendusParUsager_QNAME = new QName("http://services.webservice.ocp4.com/", "listerNonRendusParUsager");
     private final static QName _ProlongerResponse_QNAME = new QName("http://services.webservice.ocp4.com/", "prolongerResponse");
+    private final static QName _TrouverEmprunt_QNAME = new QName("http://services.webservice.ocp4.com/", "trouverEmprunt");
     private final static QName _TrouverEmpruntResponse_QNAME = new QName("http://services.webservice.ocp4.com/", "trouverEmpruntResponse");
     private final static QName _Prolonger_QNAME = new QName("http://services.webservice.ocp4.com/", "prolonger");
 
@@ -54,51 +52,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link TrouverEmprunt }
-     * 
-     */
-    public TrouverEmprunt createTrouverEmprunt() {
-        return new TrouverEmprunt();
-    }
-
-    /**
-     * Create an instance of {@link ListerNonRendus }
-     * 
-     */
-    public ListerNonRendus createListerNonRendus() {
-        return new ListerNonRendus();
-    }
-
-    /**
-     * Create an instance of {@link EnCoursPourExemplaire }
-     * 
-     */
-    public EnCoursPourExemplaire createEnCoursPourExemplaire() {
-        return new EnCoursPourExemplaire();
-    }
-
-    /**
-     * Create an instance of {@link ListerEnCoursParUsagerResponse }
-     * 
-     */
-    public ListerEnCoursParUsagerResponse createListerEnCoursParUsagerResponse() {
-        return new ListerEnCoursParUsagerResponse();
-    }
-
-    /**
-     * Create an instance of {@link ListerNonRendusParUsagerResponse }
-     * 
-     */
-    public ListerNonRendusParUsagerResponse createListerNonRendusParUsagerResponse() {
-        return new ListerNonRendusParUsagerResponse();
-    }
-
-    /**
      * Create an instance of {@link ProlongerResponse }
      * 
      */
     public ProlongerResponse createProlongerResponse() {
         return new ProlongerResponse();
+    }
+
+    /**
+     * Create an instance of {@link TrouverEmprunt }
+     * 
+     */
+    public TrouverEmprunt createTrouverEmprunt() {
+        return new TrouverEmprunt();
     }
 
     /**
@@ -118,11 +84,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link EnCoursPourExemplaireResponse }
+     * Create an instance of {@link ListerNonRendus }
      * 
      */
-    public EnCoursPourExemplaireResponse createEnCoursPourExemplaireResponse() {
-        return new EnCoursPourExemplaireResponse();
+    public ListerNonRendus createListerNonRendus() {
+        return new ListerNonRendus();
     }
 
     /**
@@ -147,6 +113,22 @@ public class ObjectFactory {
      */
     public ParseException createParseException() {
         return new ParseException();
+    }
+
+    /**
+     * Create an instance of {@link ListerEnCoursParUsagerResponse }
+     * 
+     */
+    public ListerEnCoursParUsagerResponse createListerEnCoursParUsagerResponse() {
+        return new ListerEnCoursParUsagerResponse();
+    }
+
+    /**
+     * Create an instance of {@link ListerNonRendusParUsagerResponse }
+     * 
+     */
+    public ListerNonRendusParUsagerResponse createListerNonRendusParUsagerResponse() {
+        return new ListerNonRendusParUsagerResponse();
     }
 
     /**
@@ -208,51 +190,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link EnCoursPourExemplaire }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://services.webservice.ocp4.com/", name = "EnCoursPourExemplaire")
-    public JAXBElement<EnCoursPourExemplaire> createEnCoursPourExemplaire(EnCoursPourExemplaire value) {
-        return new JAXBElement<EnCoursPourExemplaire>(_EnCoursPourExemplaire_QNAME, EnCoursPourExemplaire.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ListerNonRendus }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://services.webservice.ocp4.com/", name = "listerNonRendus")
-    public JAXBElement<ListerNonRendus> createListerNonRendus(ListerNonRendus value) {
-        return new JAXBElement<ListerNonRendus>(_ListerNonRendus_QNAME, ListerNonRendus.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ListerNonRendusParUsager }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://services.webservice.ocp4.com/", name = "listerNonRendusParUsager")
-    public JAXBElement<ListerNonRendusParUsager> createListerNonRendusParUsager(ListerNonRendusParUsager value) {
-        return new JAXBElement<ListerNonRendusParUsager>(_ListerNonRendusParUsager_QNAME, ListerNonRendusParUsager.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TrouverEmprunt }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://services.webservice.ocp4.com/", name = "trouverEmprunt")
-    public JAXBElement<TrouverEmprunt> createTrouverEmprunt(TrouverEmprunt value) {
-        return new JAXBElement<TrouverEmprunt>(_TrouverEmprunt_QNAME, TrouverEmprunt.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link EnCoursPourExemplaireResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://services.webservice.ocp4.com/", name = "EnCoursPourExemplaireResponse")
-    public JAXBElement<EnCoursPourExemplaireResponse> createEnCoursPourExemplaireResponse(EnCoursPourExemplaireResponse value) {
-        return new JAXBElement<EnCoursPourExemplaireResponse>(_EnCoursPourExemplaireResponse_QNAME, EnCoursPourExemplaireResponse.class, null, value);
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link ListerEnCoursParUsager }{@code >}}
      * 
      */
@@ -280,12 +217,39 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ListerNonRendus }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://services.webservice.ocp4.com/", name = "listerNonRendus")
+    public JAXBElement<ListerNonRendus> createListerNonRendus(ListerNonRendus value) {
+        return new JAXBElement<ListerNonRendus>(_ListerNonRendus_QNAME, ListerNonRendus.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ListerNonRendusParUsager }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://services.webservice.ocp4.com/", name = "listerNonRendusParUsager")
+    public JAXBElement<ListerNonRendusParUsager> createListerNonRendusParUsager(ListerNonRendusParUsager value) {
+        return new JAXBElement<ListerNonRendusParUsager>(_ListerNonRendusParUsager_QNAME, ListerNonRendusParUsager.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link ProlongerResponse }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://services.webservice.ocp4.com/", name = "prolongerResponse")
     public JAXBElement<ProlongerResponse> createProlongerResponse(ProlongerResponse value) {
         return new JAXBElement<ProlongerResponse>(_ProlongerResponse_QNAME, ProlongerResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link TrouverEmprunt }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://services.webservice.ocp4.com/", name = "trouverEmprunt")
+    public JAXBElement<TrouverEmprunt> createTrouverEmprunt(TrouverEmprunt value) {
+        return new JAXBElement<TrouverEmprunt>(_TrouverEmprunt_QNAME, TrouverEmprunt.class, null, value);
     }
 
     /**

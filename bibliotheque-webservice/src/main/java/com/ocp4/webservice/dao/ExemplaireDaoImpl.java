@@ -56,6 +56,7 @@ public class ExemplaireDaoImpl extends AbstractDaoImpl implements ExemplaireDao 
             public Exemplaire mapRow(ResultSet rs, int rowNum) throws SQLException {
             	Exemplaire exemplaire = new Exemplaire();
             	exemplaire.setId(rs.getInt("idexemplaire"));
+            	exemplaire.setEstDisponible(rs.getBoolean("estdisponible"));
             	exemplaire.setIsbn(rs.getString("isbn"));
             	exemplaire.setEdition(editionDao.trouver(exemplaire.getIsbn())); 	
                 return exemplaire;

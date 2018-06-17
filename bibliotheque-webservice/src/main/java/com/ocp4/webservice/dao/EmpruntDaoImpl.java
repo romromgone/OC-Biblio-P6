@@ -26,7 +26,6 @@ public class EmpruntDaoImpl extends AbstractDaoImpl implements EmpruntDao {
 	
 	private static final String SQL_SELECT_PAR_ID = "SELECT * FROM emprunt WHERE mail = ? AND idexemplaire = ? AND datedeb = ?";
 	private static final String SQL_UPDATE_PROLONGER = "UPDATE emprunt SET (datefin, prolonge) = (datefin + 28, true) WHERE mail = ? AND idexemplaire = ? AND datedeb = ?";
-	private static final String SQL_SELECT_PAR_EXEMPLAIRE_EN_COURS = "SELECT count(*) FROM emprunt WHERE idexemplaire = ? AND datefin < DATE(NOW()) AND rendu = true";
 	private static final String SQL_SELECT_NON_RENDU = "SELECT * FROM emprunt WHERE rendu = false AND datefin < DATE(NOW())";
 	private static final String SQL_SELECT_EN_COURS_PAR_USAGER = "SELECT * FROM emprunt WHERE mail = ? AND datefin >= DATE(NOW())";
 	private static final String SQL_SELECT_NON_RENDU_PAR_USAGER = "SELECT * FROM emprunt WHERE mail = ? AND rendu = false AND datefin < DATE(NOW())";
@@ -51,16 +50,7 @@ public class EmpruntDaoImpl extends AbstractDaoImpl implements EmpruntDao {
 		int nbLignesMaj = jdbcTemplate.update(SQL_UPDATE_PROLONGER, mail, idExemplaire, sqlDate);
 		return nbLignesMaj;
 	}
-	
-	@Override
-	public Boolean EnCoursPourExemplaire(Integer idExemplaire) {
-		JdbcTemplate jdbcTemplate = new JdbcTemplate(getDataSource());
-
-   	    Integer nbLignes = jdbcTemplate.queryForObject(SQL_SELECT_PAR_EXEMPLAIRE_EN_COURS, Integer.class, idExemplaire);
-   	    if(nbLignes != 0) return false;
-   	    else return true;
-	}
-	
+		
     @Override
     public List<Emprunt> listerNonRendus() {
         return lister(SQL_SELECT_NON_RENDU);

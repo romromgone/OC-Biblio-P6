@@ -15,11 +15,10 @@ import com.ocp4.webservice.beans.Ouvrage;
 @Named
 public class OuvrageDaoImpl extends AbstractDaoImpl implements OuvrageDao {
 	private static final String SQL_SELECT_PAR_ID = "SELECT * FROM ouvrage WHERE idouvrage = ?";
-	private static final String SQL_SELECT = "SELECT * FROM ouvrage ORDER BY classification, auteur";
-	private static final String SQL_SELECT_PAR_TITRE = "SELECT * FROM ouvrage WHERE titre = ? ORDER BY classification, auteur";
+	private static final String SQL_SELECT_TOUT = "SELECT * FROM ouvrage ORDER BY classification, auteur";
+	private static final String SQL_SELECT_PAR_TITRE = "SELECT * FROM ouvrage WHERE titre = ? ORDER BY auteur";
 	private static final String SQL_SELECT_PAR_AUTEUR = "SELECT * FROM ouvrage WHERE auteur = ? ORDER BY titre";
 	private static final String SQL_SELECT_PAR_TITRE_ET_AUTEUR = "SELECT * FROM ouvrage WHERE titre = ? AND auteur = ?";
-	private static final String SQL_SELECT_PAR_CLASSIFICATION = "SELECT * FROM ouvrage WHERE classification = ? ORDER BY auteur, titre";
     
 	
 	@Override
@@ -31,7 +30,7 @@ public class OuvrageDaoImpl extends AbstractDaoImpl implements OuvrageDao {
     public List<Ouvrage> listerTout() {
     	JdbcTemplate jdbcTemplate = new JdbcTemplate(getDataSource());
     	
-        List<Ouvrage> ouvrages = jdbcTemplate.query(SQL_SELECT, getRowMapper());
+        List<Ouvrage> ouvrages = jdbcTemplate.query(SQL_SELECT_TOUT, getRowMapper());
 
         return ouvrages;	
     }
@@ -49,11 +48,6 @@ public class OuvrageDaoImpl extends AbstractDaoImpl implements OuvrageDao {
     @Override
     public List<Ouvrage> rechercherParTitreEtAuteur(String titre, String auteur) {
         return rechercher(SQL_SELECT_PAR_TITRE_ET_AUTEUR, titre, auteur);
-    }
-    
-    @Override
-    public List<Ouvrage> rechercherParClassification(String classification) {
-        return rechercher(SQL_SELECT_PAR_CLASSIFICATION, classification);
     }
     
     

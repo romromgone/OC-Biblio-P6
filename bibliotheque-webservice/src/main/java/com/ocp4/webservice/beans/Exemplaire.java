@@ -3,10 +3,11 @@ package com.ocp4.webservice.beans;
 
 public class Exemplaire {
 	private Integer id;
+	private Boolean estDisponible;
 	private String isbn;
 	
-	private Edition edition;
-
+	private Edition edition;	
+	
 	
 	public Integer getId() {
 		return id;
@@ -15,6 +16,13 @@ public class Exemplaire {
 		this.id = id;
 	}
 
+	public Boolean getEstDisponible() {
+		return estDisponible;
+	}
+	public void setEstDisponible(Boolean estDisponible) {
+		this.estDisponible = estDisponible;
+	}
+	
 	public String getIsbn() {
 		return isbn;
 	}

@@ -2,7 +2,6 @@ package com.ocp4.webapp.actions;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -28,11 +27,9 @@ import generated.clientserviceUsager.Usager;
 public class OuvragesAction  extends ActionSupport implements SessionAware {
 	private String titre;
 	private String auteur;
-	private String classification;
-	private String resume;
 	private Usager usager;
 	private List<Ouvrage> listeRechercheOuvrages;
-	private Map<Ouvrage, Integer> nbMapExemplairesDispos;
+	private int nbExemplairesDispos;
 	private Map<String, Object> session;
 	
 
@@ -49,21 +46,7 @@ public class OuvragesAction  extends ActionSupport implements SessionAware {
 	public void setAuteur(String auteur) {
 		this.auteur = auteur;
 	}
-
-	public String getClassification() {
-		return classification;
-	}
-	public void setClassification(String classification) {
-		this.classification = classification;
-	}
 	
-	public String getResume() {
-		return resume;
-	}
-	public void setResume(String resume) {
-		this.resume = resume;
-	}
-
 	public Usager getUsager() {
 		return usager;
 	}
@@ -72,14 +55,13 @@ public class OuvragesAction  extends ActionSupport implements SessionAware {
 		return listeRechercheOuvrages;
 	}
 
-	public Map<Ouvrage, Integer> getNbMapExemplairesDispos() {
-		return nbMapExemplairesDispos;
+	public int getNbExemplairesDispos() {
+		return nbExemplairesDispos;
 	}
-
+	
 	public Map<String, Object> getSession() {
 		return session;
 	}
-
 
 	@Override
     public void setSession(Map<String, Object> pSession) {
@@ -89,40 +71,36 @@ public class OuvragesAction  extends ActionSupport implements SessionAware {
 	
 	public String doRechercher() throws ParseException_Exception {
 		String vResult = ActionSupport.INPUT;
-		
+				
 		usager = (Usager) session.get("usager");
         if (usager == null) {
         	this.addActionError("Vous avez été déconnecté");
         	return ActionSupport.ERROR;
         }
         else {
-        	try {
-        		if (auteur == null && classification == null) listeRechercheOuvrages = getOuvrageService().rechercherParTitre(titre);
-        		else if (titre == null && classification == null) listeRechercheOuvrages = getOuvrageService().rechercherParAuteur(auteur);
-        		else if (auteur == null && titre == null) listeRechercheOuvrages = getOuvrageService().rechercherParClassification(classification);
-        		else if (classification == null) listeRechercheOuvrages = getOuvrageService().rechercherParTitreEtAuteur(titre, auteur);
-        		/*for (Ouvrage ouvrage : listeRechercheOuvrages) {
-        			nbMapExemplairesDispos.put(ouvrage, null);
+        	try {        		
+        		listeRechercheOuvrages = getOuvrageService().rechercherParTitreEtAuteur(titre, auteur);
+        		for (Ouvrage ouvrage : listeRechercheOuvrages) {
         		    List<Edition> listeEditions = getEditionService().listerParOuvrage(ouvrage.getId());
         		    for (Edition edition : listeEditions) {
         		    	List<Exemplaire> listeExemplaires = getExemplaireService().listerParEdition(edition.getIsbn());
-        		    	Integer nbExemplairesDispos = 0;
         		    	for (Exemplaire exemplaire : listeExemplaires) {
-        		    		if (!getEmpruntService().enCoursPourExemplaire(exemplaire.getId())) {
+        		    		if (exemplaire.isEstDisponible() == true) {
         		    			nbExemplairesDispos++;   		    			
         		    		}
-        		    		nbMapExemplairesDispos.put(ouvrage, nbExemplairesDispos);
-        		    	}
+    		    		}
         		    }
-        		}*/
-            	vResult = ActionSupport.SUCCESS;
+    			}
+        		vResult = ActionSupport.SUCCESS;  		
         	} catch (RuntimeException e) {
-        		this.addActionError("Erreur de la recherche");
+        		this.addActionError("Erreur de la recherche" + e);
             	return ActionSupport.ERROR;
         	}    	
         }
         return vResult; 	
 	}
+	
+	
 	private OuvrageService getOuvrageService() {
 		OuvrageService ouvrageService;
     	URL wsdlLocationOuvrage = null;
@@ -166,21 +144,6 @@ public class OuvragesAction  extends ActionSupport implements SessionAware {
 		ExemplaireService_Service exemplaireServiceService = new ExemplaireService_Service(wsdlLocationExemplaire);
 		exemplaireService = exemplaireServiceService.getExemplaireServicePort(); 
 		return exemplaireService;
-    }
-	
-	private EmpruntService getEmpruntService() {
-		EmpruntService empruntService;
-    	URL wsdlLocationEmprunt = null;
-    	
-    	try {
-    		wsdlLocationEmprunt = new URL(getText("WSDLLocationEmprunt"));
-		} catch (MalformedURLException e) {		
-			e.printStackTrace();
-		}
-
-		EmpruntService_Service empruntServiceService = new EmpruntService_Service(wsdlLocationEmprunt);
-		empruntService = empruntServiceService.getEmpruntServicePort(); 
-		return empruntService;
     }
 
 }
