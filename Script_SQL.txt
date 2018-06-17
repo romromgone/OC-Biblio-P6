@@ -1,0 +1,79 @@
+CREATE DATABASE bibliotheque --encoding='utf-8';
+\connect bibliotheque;
+
+CREATE TABLE usager (
+	mail 	      varchar(50) PRIMARY KEY,	
+	mdp 	      varchar(56) NOT NULL,
+  	nomuser       varchar(30) NOT NULL,
+ 	prenomuser    varchar(20) NOT NULL,
+  	telephone     varchar(10) NOT NULL
+);
+
+CREATE TABLE ouvrage (
+	idouvrage       serial PRIMARY KEY,
+	titre           varchar(100) NOT NULL,
+	auteur          varchar(50) NOT NULL,
+	anneeparution   varchar(4) NOT NULL,
+	classification	varchar(3) NOT NULL,
+	resume          text
+);
+
+CREATE TABLE edition (
+	isbn            varchar(13) PRIMARY KEY,
+	editeur         varchar(30) NOT NULL,
+	anneeedition    varchar(4) NOT NULL,
+	format   	varchar(10) NOT NULL,
+	idouvrage       integer NOT NULL REFERENCES ouvrage (idouvrage)
+);
+
+CREATE TABLE exemplaire (
+	idexemplaire 	serial PRIMARY KEY,
+	estdisponible	boolean NOT NULL,
+	isbn       	varchar(13) NOT NULL REFERENCES edition (isbn)
+);
+
+CREATE TABLE emprunt (
+	datedeb         date NOT NULL,
+	datefin         date NOT NULL,
+	prolonge	boolean NOT NULL,
+	rendu		boolean NOT NULL,
+	mail	        varchar(50) NOT NULL REFERENCES usager (mail),
+	idexemplaire    integer NOT NULL REFERENCES exemplaire (idexemplaire),
+	PRIMARY KEY (mail, idexemplaire, datedeb)
+);
+
+
+INSERT INTO usager (mail, mdp, nomuser, prenomuser, telephone) VALUES 
+('votremail@gmail.com', 'motdepasse', 'Dupont', 'Michel', '0000000000'),
+('romain.c-h@hotmail.com', 'mdp', 'Camberbet', 'Romain', '0609404881');
+
+INSERT INTO ouvrage (idouvrage, titre, auteur, anneeparution, classification, resume) VALUES 
+('1984', 'George Orwell', '1949', '820', 'De tous les carrefours importants, le visage à la moustache noire vous fixait du regard. Il y en avait un sur le mur d'en face. BIG BROTHER VOUS REGARDE, répétait la légende, tandis que le regard des yeux noirs pénétrait les yeux de Winston... Au loin, un hélicoptère glissa entre les toits, plana un moment, telle une mouche bleue, puis repartit comme une flèche, dans un vol courbe. C'était une patrouille qui venait mettre le nez aux fenêtres des gens. Mais les patrouilles n'avaient pas d'importance. Seule comptait la Police de la Pensée.'),
+('La fin de l'éternité', 'Isaac Asimov', '1965', '890', ''),
+('Le cycle des robots 1', 'Isaac Asimov', '1950', '890', 'Première Loi : Un robot ne peut porter atteinte à un être humain ni, restant passif, laisser cet être humain exposé au danger. Deuxième Loi : Un robot doit obéir aux ordres donnés par les êtres humains, sauf si de tels ordres entrent en contradiction avec la Première Loi. Troisième Loi : Un robot doit protéger son existence dans la mesure où cette protection n'entre pas en contradiction avec la Première ou la Deuxième Loi.'),
+('MASS EFFECT Révelation', 'Drew Karpyshyn', '2012', '820', 'Les sociétés les plus avancées de la galaxie dépendent toutes de la technologie des Prothéens, une espèce antique disparue il y a cinq mille ans. Après la découverte d'équipement prothéen sur Mars en 2148, l'humanité, la plus jeune des espèces interstellaires, se lance à travers l'univers et lutte pour se faire une place au sein de la communauté galactique… ');
+
+INSERT INTO edition (isbn, editeur, anneeedition, format, idouvrage) VALUES 
+('9782070368228', 'Gallimard', '2015', 'poche', 1),
+('9782070422647', 'Gallimard', '2013', 'poche', 2),
+('9782290055953', 'J'AI LU', '2012', 'poche', 3),
+('9782811206772', 'Milady', '2012', 'poche', 4);
+
+INSERT INTO exemplaire (estdisponible, isbn) VALUES 
+(false, '9782070368228'),
+(false, '9782070368228'),
+(false, '9782070422647'),
+(true, '9782070422647'),
+(true, '9782070422647'),
+(false, '9782290055953'),
+(false, '9782811206772'),
+(true, '9782290055953'),
+(true, '9782811206772'),
+
+INSERT INTO emprunt (datedeb, datefin, prolonge, rendu, mail, idexemplaire) VALUES
+('2018-04-04', '2018-05-30', true, false, 'romain.c-h@hotmail.fr', 2),
+('2018-04-15', '2018-05-13', false, true, 'romain.c-h@hotmail.fr', 5),
+('2018-04-23', '2018-06-18', true, false, 'votremail@gmail.com', 7),
+('2018-04-28', '2018-06-23', true, false, 'votremail@gmail.com', 3),
+('2018-06-01', '2018-06-29', false, false, 'votremail@gmail.com', 6),
+('2018-05-11', '2018-06-08', false, false, 'votremail@gmail.com', 1);
