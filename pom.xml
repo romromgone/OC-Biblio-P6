@@ -4,7 +4,7 @@
 	
 	  <groupId>com.ocp4</groupId>
 	  <artifactId>bibliotheque</artifactId>
-	  <version>1.0.0</version>
+	  <version>1.1.x-SNAPSHOT</version>
 	  <packaging>pom</packaging>
 	
 	  <name>SI Bibliothèque</name>
@@ -22,17 +22,17 @@
 				    <dependency>
 				        <groupId>com.ocp4</groupId>
 				        <artifactId>bibliotheque-webservice</artifactId>
-				        <version>1.0.0</version>
+				        <version>1.1.x-SNAPSHOT</version>
 				    </dependency>
 				    <dependency>
 				        <groupId>com.ocp4</groupId>
 				        <artifactId>bibliotheque-webapp</artifactId>
-				        <version>1.0.0</version>
+				        <version>1.1.x-SNAPSHOT</version>
 				    </dependency> 
 				    <dependency>
 				        <groupId>com.ocp4</groupId>
 				        <artifactId>bibliotheque-batch</artifactId>
-				        <version>1.0.0</version>
+				        <version>1.1.x-SNAPSHOT</version>
 				    </dependency> 
 				    <!-- ======= Lib ======= -->	 
 				    <!-- PostgreSql -->	
