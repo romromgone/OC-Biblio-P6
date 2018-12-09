@@ -14,7 +14,7 @@
 			
 	   	<div class="offset-md-1 col-md-10">
 	     	<div class="card">
-	 				<div class="card-header ">Entrer le titre et l'auteur de l'ouvrage pour faire une rechercher</div>
+	 				<div class="card-header ">Entrer le titre et l'auteur de l'ouvrage pour faire une recherche</div>
 	 				<div class="card-body col-md-12">
 						<p></p>
 						<div class="row">
