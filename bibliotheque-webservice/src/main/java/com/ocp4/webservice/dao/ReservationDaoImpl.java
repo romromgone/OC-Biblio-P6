@@ -24,7 +24,7 @@ public class ReservationDaoImpl extends AbstractDaoImpl implements ReservationDa
 	private static final String SQL_INSERT = "INSERT INTO reservation (position, tsmailenvoye, mail, idouvrage) VALUES (?, null, ?, ?)";
 	private static final String SQL_DELETE = "DELETE FROM reservation WHERE mail = ? AND idouvrage = ?";
 	private static final String SQL_COUNT_PAR_OUVRAGE = "SELECT COUNT(*) FROM reservation WHERE idouvrage = ?";
-	private static final String SQL_SELECT_PAR_OUVRAGE_ET_POSITION_SUP_UN = "SELECT * FROM reservation WHERE idouvrage = ? AND position > 1";
+	private static final String SQL_SELECT_PAR_OUVRAGE_ET_POSITION_SUP = "SELECT * FROM reservation WHERE idouvrage = ? AND position > ?";
 	
 	@Override
 	public void creer(Integer position, String mailUsager, Integer idOuvrage) {
@@ -50,10 +50,10 @@ public class ReservationDaoImpl extends AbstractDaoImpl implements ReservationDa
 	}
 	
 	@Override
-	public List<Reservation> listerParOuvrageEtPositionSuperieurAUn(Integer idOuvrage) {
+	public List<Reservation> listerParOuvrageEtPositionSuperieur(Integer position, Integer idOuvrage) {
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(getDataSource());
 
-   	    List<Reservation> reservations = jdbcTemplate.query(SQL_SELECT_PAR_OUVRAGE_ET_POSITION_SUP_UN, new Object[] {idOuvrage}, getRowMapper());
+   	    List<Reservation> reservations = jdbcTemplate.query(SQL_SELECT_PAR_OUVRAGE_ET_POSITION_SUP, new Object[] {idOuvrage, position}, getRowMapper());
    	    
    	    return reservations;
 	}
