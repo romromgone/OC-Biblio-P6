@@ -38,8 +38,8 @@
 								      <td><span class="text-info"><s:property value="dateFin" /></span></td>
 								      <s:set var="estProlonge" value="prolonge"/>						      
 								      <td><s:if test="%{#estProlonge==true}">Oui</s:if><s:else>Non</s:else></td>
-								      <td>
-								      	<s:if test="%{#estProlonge==false}">
+								      <td>							      	
+								      	<s:if test="%{#estProlonge == false}">
 									      	<s:form method="post" action="prolonger" id="form" name="form" > 
 									      	 	<s:hidden name="idExemplaire" id="idExemplaire" />
 									      	  <s:hidden name="dateDeb" id="dateDeb" />
@@ -54,7 +54,7 @@
 						</div>
 						<p></p>
 						<h5 class="card-title" >Emprunts non rendus :</h5>
-						<p class="card-text">Merci de nous rapporter ces exemplaires dans les plus brefs délais ou de les prolonger dans le cas où ces prêts n'ont pas été déjà prolongés.</p>
+						<p class="card-text">Merci de nous rapporter ces exemplaires dans les plus brefs délais. Vous ne pouvez pas pronlonger ces prêts.</p>
 						<div class="row">      			      			
 	       			<table class="table table-striped">
 							  <thead>
@@ -64,7 +64,6 @@
 							      <th scope="col">Date début de prêt</th>
 							      <th scope="col">Date retour dépassée depuis le</th>
 							      <th scope="col">Pronlongé</th>
-							      <th scope="col"></th>
 							    </tr>
 							  </thead>
 							  <tbody>						  		
@@ -75,16 +74,7 @@
 								      <td><s:property value="dateDeb" /></td>
 								      <td><span class="text-danger"><s:property value="dateFin" /></span></td>
 								      <s:set var="estProlonge" value="prolonge"/>						      
-								      <td><s:if test="%{#estProlonge==true}">Oui</s:if><s:else>Non</s:else></td>
-								      <td>
-								      	<s:if test="%{#estProlonge==false}">
-									      	<s:form method="post" action="prolonger" id="form" name="form" > 
-									      	 	<s:hidden name="idExemplaire" id="idExemplaire" />
-									      	  <s:hidden name="dateDeb" id="dateDeb" />
-									      		<s:submit class="btn btn-info btn-sm" value="Prolonger" />
-									      	</s:form>
-								      	</s:if>
-							      	</td>
+								      <td><s:if test="%{#estProlonge==true}">Oui</s:if><s:else>Non</s:else></td>							    
 								    </tr>
 							    </s:iterator>							   
 							  </tbody>

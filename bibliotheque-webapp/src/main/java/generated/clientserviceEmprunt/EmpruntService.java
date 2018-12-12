@@ -62,17 +62,17 @@ public interface EmpruntService {
      * @param arg1
      * @param arg0
      * @return
-     *     returns java.lang.Integer
+     *     returns generated.clientserviceEmprunt.Emprunt
      * @throws ParseException_Exception
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "prolonger", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceEmprunt.Prolonger")
-    @ResponseWrapper(localName = "prolongerResponse", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceEmprunt.ProlongerResponse")
-    @Action(input = "http://services.webservice.ocp4.com/EmpruntService/prolongerRequest", output = "http://services.webservice.ocp4.com/EmpruntService/prolongerResponse", fault = {
-        @FaultAction(className = ParseException_Exception.class, value = "http://services.webservice.ocp4.com/EmpruntService/prolonger/Fault/ParseException")
+    @RequestWrapper(localName = "trouverEmprunt", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceEmprunt.TrouverEmprunt")
+    @ResponseWrapper(localName = "trouverEmpruntResponse", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceEmprunt.TrouverEmpruntResponse")
+    @Action(input = "http://services.webservice.ocp4.com/EmpruntService/trouverEmpruntRequest", output = "http://services.webservice.ocp4.com/EmpruntService/trouverEmpruntResponse", fault = {
+        @FaultAction(className = ParseException_Exception.class, value = "http://services.webservice.ocp4.com/EmpruntService/trouverEmprunt/Fault/ParseException")
     })
-    public Integer prolonger(
+    public Emprunt trouverEmprunt(
         @WebParam(name = "arg0", targetNamespace = "")
         String arg0,
         @WebParam(name = "arg1", targetNamespace = "")
@@ -100,17 +100,17 @@ public interface EmpruntService {
      * @param arg1
      * @param arg0
      * @return
-     *     returns generated.clientserviceEmprunt.Emprunt
+     *     returns java.lang.Integer
      * @throws ParseException_Exception
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "trouverEmprunt", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceEmprunt.TrouverEmprunt")
-    @ResponseWrapper(localName = "trouverEmpruntResponse", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceEmprunt.TrouverEmpruntResponse")
-    @Action(input = "http://services.webservice.ocp4.com/EmpruntService/trouverEmpruntRequest", output = "http://services.webservice.ocp4.com/EmpruntService/trouverEmpruntResponse", fault = {
-        @FaultAction(className = ParseException_Exception.class, value = "http://services.webservice.ocp4.com/EmpruntService/trouverEmprunt/Fault/ParseException")
+    @RequestWrapper(localName = "prolonger", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceEmprunt.Prolonger")
+    @ResponseWrapper(localName = "prolongerResponse", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceEmprunt.ProlongerResponse")
+    @Action(input = "http://services.webservice.ocp4.com/EmpruntService/prolongerRequest", output = "http://services.webservice.ocp4.com/EmpruntService/prolongerResponse", fault = {
+        @FaultAction(className = ParseException_Exception.class, value = "http://services.webservice.ocp4.com/EmpruntService/prolonger/Fault/ParseException")
     })
-    public Emprunt trouverEmprunt(
+    public Integer prolonger(
         @WebParam(name = "arg0", targetNamespace = "")
         String arg0,
         @WebParam(name = "arg1", targetNamespace = "")
