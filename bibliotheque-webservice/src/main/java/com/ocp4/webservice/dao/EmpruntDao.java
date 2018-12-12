@@ -12,4 +12,6 @@ public interface EmpruntDao {
 	List<Emprunt> listerNonRendus();
 	List<Emprunt> listerEnCoursParUsager(String mail);
 	List<Emprunt> listerNonRendusParUsager(String mail);
+	List<Emprunt> listerEnCoursParExemplaire(Integer idExemplaire);
+	List<Emprunt> listerNonRendusParExemplaire(Integer idExemplaire);
 }

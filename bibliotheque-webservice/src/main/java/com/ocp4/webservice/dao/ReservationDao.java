@@ -1,6 +1,5 @@
 package com.ocp4.webservice.dao;
 
-import java.text.ParseException;
 import java.util.List;
 
 import com.ocp4.webservice.beans.Reservation;

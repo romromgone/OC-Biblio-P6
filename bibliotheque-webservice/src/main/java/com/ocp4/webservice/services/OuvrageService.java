@@ -1,15 +1,23 @@
 package com.ocp4.webservice.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 
+import com.ocp4.webservice.beans.Emprunt;
 import com.ocp4.webservice.beans.Ouvrage;
+
+import com.ocp4.webservice.beans.Exemplaire;;
 
 
 @WebService(serviceName = "OuvrageService")
 public class OuvrageService extends AbstractService {
+	
+	@Inject
+	ExemplaireService exemplaireService;
 
 	@WebMethod
 	public Ouvrage trouverOuvrage(Integer idOuvrage) {
@@ -40,4 +48,34 @@ public class OuvrageService extends AbstractService {
 		List<Ouvrage> ouvrages = getDaoFactory().getOuvrageDao().rechercherParTitreEtAuteur(titre, auteur);
 		return ouvrages;
 	}
+	    
+	@WebMethod
+	public Boolean enCoursDEmprunt(Integer idOuvrage, String mailUsager) {
+		Boolean result = false;
+		List<Exemplaire> exemplaires = exemplaireService.listerParOuvrage(idOuvrage);
+		List<Emprunt> empruntsEnCours = getDaoFactory().getEmpruntDao().listerEnCoursParUsager(mailUsager);
+		List<Emprunt> empruntsNonRendus = getDaoFactory().getEmpruntDao().listerNonRendusParUsager(mailUsager);
+	
+		List<Emprunt> emprunts = new ArrayList<Emprunt>(empruntsEnCours);
+		emprunts.addAll(empruntsNonRendus);
+		
+		for (Emprunt emprunt : emprunts) {
+			for (Exemplaire exemplaire : exemplaires) {
+				if (emprunt.getIdExemplaire() == exemplaire.getId()) {
+					result = true;
+				}
+			}	
+		}
+		return result;
+	}
+	
+	@WebMethod
+	public Boolean listeReservationsComplete(Integer idOuvrage) {
+		List<Exemplaire> exemplaires = exemplaireService.listerParOuvrage(idOuvrage);
+		Integer nbReservations = getDaoFactory().getReservationDao().enumererParOuvrage(idOuvrage);
+		
+		if (nbReservations >= exemplaires.size() * 2) return true;
+		else return false;
+	}
+	    
 }

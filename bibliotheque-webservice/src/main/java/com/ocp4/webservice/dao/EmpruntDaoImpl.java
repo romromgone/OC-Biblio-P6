@@ -29,6 +29,9 @@ public class EmpruntDaoImpl extends AbstractDaoImpl implements EmpruntDao {
 	private static final String SQL_SELECT_NON_RENDU = "SELECT * FROM emprunt WHERE rendu = false AND datefin < DATE(NOW())";
 	private static final String SQL_SELECT_EN_COURS_PAR_USAGER = "SELECT * FROM emprunt WHERE mail = ? AND datefin >= DATE(NOW())";
 	private static final String SQL_SELECT_NON_RENDU_PAR_USAGER = "SELECT * FROM emprunt WHERE mail = ? AND rendu = false AND datefin < DATE(NOW())";
+	private static final String SQL_SELECT_EN_COURS_PAR_EXEMPLAIRE = "SELECT * FROM emprunt WHERE idexemplaire = ? AND datefin >= DATE(NOW())";
+	private static final String SQL_SELECT_NON_RENDU_PAR_EXEMPLAIRE = "SELECT * FROM emprunt WHERE idexemplaire = ? AND rendu = false AND datefin < DATE(NOW())";
+	
     
 	
 	@Override
@@ -66,6 +69,16 @@ public class EmpruntDaoImpl extends AbstractDaoImpl implements EmpruntDao {
         return lister(SQL_SELECT_NON_RENDU_PAR_USAGER, mail);
     }
     
+    @Override
+    public List<Emprunt> listerEnCoursParExemplaire(Integer idExemplaire) {
+    	return lister(SQL_SELECT_EN_COURS_PAR_EXEMPLAIRE, idExemplaire);
+    }
+    
+    @Override
+    public List<Emprunt> listerNonRendusParExemplaire(Integer idExemplaire) {
+    	return lister(SQL_SELECT_NON_RENDU_PAR_EXEMPLAIRE, idExemplaire);
+    }
+    
     
     private Emprunt trouver(String sql, Object... objets)  {
    	    JdbcTemplate jdbcTemplate = new JdbcTemplate(getDataSource());
@@ -86,17 +99,24 @@ public class EmpruntDaoImpl extends AbstractDaoImpl implements EmpruntDao {
     private RowMapper<Emprunt> getRowMapper() { 	
     	RowMapper<Emprunt> empruntRowMapper = new RowMapper<Emprunt>() {
             public Emprunt mapRow(ResultSet rs, int rowNum) throws SQLException {
-            	Emprunt emprunt = new Emprunt();
-            	DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-              	emprunt.setDateDeb(df.format(rs.getDate("datedeb")));
-            	emprunt.setDateFin(df.format(rs.getDate("datefin")));
-            	emprunt.setProlonge(rs.getBoolean("prolonge"));
-            	emprunt.setRendu(rs.getBoolean("rendu"));
-            	emprunt.setMailUsager(rs.getString("mail"));
-            	emprunt.setIdExemplaire(rs.getInt("idexemplaire")); 
-            	emprunt.setUsager(usagerDao.trouver(emprunt.getMailUsager()));
-            	emprunt.setExemplaire(exemplaireDao.trouver(emprunt.getIdExemplaire()));
-                return emprunt;
+            	if (rs.next() == false) {
+            		return null;
+            	} else {
+            		do {
+	        			Emprunt emprunt = new Emprunt();
+	                	DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+	                  	emprunt.setDateDeb(df.format(rs.getDate("datedeb")));
+	                	emprunt.setDateFin(df.format(rs.getDate("datefin")));
+	                	emprunt.setProlonge(rs.getBoolean("prolonge"));
+	                	emprunt.setRendu(rs.getBoolean("rendu"));
+	                	emprunt.setMailUsager(rs.getString("mail"));
+	                	emprunt.setIdExemplaire(rs.getInt("idexemplaire")); 
+	                	emprunt.setUsager(usagerDao.trouver(emprunt.getMailUsager()));
+	                	emprunt.setExemplaire(exemplaireDao.trouver(emprunt.getIdExemplaire()));
+	                    return emprunt;
+            		} while(rs.next());
+            	}
+            	
             }
         };	
         return empruntRowMapper;
