@@ -27,21 +27,6 @@ public interface OuvrageService {
 
     /**
      * 
-     * @param arg0
-     * @return
-     *     returns java.util.List<generated.clientserviceOuvrage.Ouvrage>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "rechercherParTitre", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceOuvrage.RechercherParTitre")
-    @ResponseWrapper(localName = "rechercherParTitreResponse", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceOuvrage.RechercherParTitreResponse")
-    @Action(input = "http://services.webservice.ocp4.com/OuvrageService/rechercherParTitreRequest", output = "http://services.webservice.ocp4.com/OuvrageService/rechercherParTitreResponse")
-    public List<Ouvrage> rechercherParTitre(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0);
-
-    /**
-     * 
      * @param arg1
      * @param arg0
      * @return
@@ -57,6 +42,21 @@ public interface OuvrageService {
         String arg0,
         @WebParam(name = "arg1", targetNamespace = "")
         String arg1);
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns java.util.List<generated.clientserviceOuvrage.Ouvrage>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "rechercherParTitre", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceOuvrage.RechercherParTitre")
+    @ResponseWrapper(localName = "rechercherParTitreResponse", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceOuvrage.RechercherParTitreResponse")
+    @Action(input = "http://services.webservice.ocp4.com/OuvrageService/rechercherParTitreRequest", output = "http://services.webservice.ocp4.com/OuvrageService/rechercherParTitreResponse")
+    public List<Ouvrage> rechercherParTitre(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0);
 
     /**
      * 
