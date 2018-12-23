@@ -10,7 +10,6 @@ import javax.inject.Named;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
-
 import com.ocp4.webservice.beans.Reservation;
 
 
@@ -21,23 +20,45 @@ public class ReservationDaoImpl extends AbstractDaoImpl implements ReservationDa
 	@Inject
 	private OuvrageDao ouvrageDao;
 	
+	private static final String SQL_SELECT_ALL = "SELECT * FROM reservation";
+	private static final String SQL_SELECT_PAR_USAGER = "SELECT * FROM reservation WHERE mail = ?";
 	private static final String SQL_INSERT = "INSERT INTO reservation (position, tsmailenvoye, mail, idouvrage) VALUES (?, null, ?, ?)";
 	private static final String SQL_DELETE = "DELETE FROM reservation WHERE mail = ? AND idouvrage = ?";
 	private static final String SQL_COUNT_PAR_OUVRAGE = "SELECT COUNT(*) FROM reservation WHERE idouvrage = ?";
 	private static final String SQL_SELECT_PAR_OUVRAGE_ET_POSITION_SUP = "SELECT * FROM reservation WHERE idouvrage = ? AND position > ?";
+	private static final String SQL_UPDATE_POSITION = "UPDATE reservation SET position = ? WHERE mail = ? AND idouvrage = ?";
+	
+	
+	@Override
+    public List<Reservation> listerTout() {
+    	JdbcTemplate jdbcTemplate = new JdbcTemplate(getDataSource());
+    	
+        List<Reservation> reservations = jdbcTemplate.query(SQL_SELECT_ALL, getRowMapper());
+
+        return reservations;	
+    }
+	
+	@Override
+	public List<Reservation> listerParUsager(String mailUsager) {
+		JdbcTemplate jdbcTemplate = new JdbcTemplate(getDataSource());
+    	
+        List<Reservation> reservations = jdbcTemplate.query(SQL_SELECT_PAR_USAGER, new Object[] {mailUsager}, getRowMapper());
+
+        return reservations;
+	}
 	
 	@Override
 	public void creer(Integer position, String mailUsager, Integer idOuvrage) {
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(getDataSource());
 		
-		int row = jdbcTemplate.update(SQL_INSERT, position, mailUsager, idOuvrage);	
+		jdbcTemplate.update(SQL_INSERT, position, mailUsager, idOuvrage);	
 	}
 	
 	@Override
 	public void supprimer(String mailUsager, Integer idOuvrage) {
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(getDataSource());
 		
-		int row = jdbcTemplate.update(SQL_DELETE, mailUsager, idOuvrage);	
+		jdbcTemplate.update(SQL_DELETE, mailUsager, idOuvrage);	
 	}
 	
 	@Override
@@ -56,6 +77,13 @@ public class ReservationDaoImpl extends AbstractDaoImpl implements ReservationDa
    	    List<Reservation> reservations = jdbcTemplate.query(SQL_SELECT_PAR_OUVRAGE_ET_POSITION_SUP, new Object[] {idOuvrage, position}, getRowMapper());
    	    
    	    return reservations;
+	}
+	
+	@Override
+	public void modifierPosition(Integer position, String mailUsager, Integer idOuvrage) {
+		JdbcTemplate jdbcTemplate = new JdbcTemplate(getDataSource());
+		
+		jdbcTemplate.update(SQL_UPDATE_POSITION, position, mailUsager, idOuvrage);			
 	}
 	
 	private RowMapper<Reservation> getRowMapper() { 	

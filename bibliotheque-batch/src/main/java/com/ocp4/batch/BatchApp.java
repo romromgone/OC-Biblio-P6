@@ -26,6 +26,8 @@ public class BatchApp {
     private String wsdlLocationExemplaire;
     @Value("${WSDLLocationEmprunt}")
     private String wsdlLocationEmprunt;
+    @Value("${WSDLLocationReservation}")
+    private String wsdlLocationReservation;
     
     @Value("${emailHost}")
     private String emailHost;
@@ -55,6 +57,7 @@ public class BatchApp {
     	wsdlLocation.setWsdlLocationEdition(wsdlLocationEdition);
     	wsdlLocation.setWsdlLocationExemplaire(wsdlLocationExemplaire);
     	wsdlLocation.setWsdlLocationEmprunt(wsdlLocationEmprunt);
+    	wsdlLocation.setWsdlLocationReservation(wsdlLocationReservation);
         return wsdlLocation;
     }
 

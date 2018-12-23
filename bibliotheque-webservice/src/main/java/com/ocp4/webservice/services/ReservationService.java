@@ -13,12 +13,22 @@ import com.ocp4.webservice.dao.ReservationDao;
 public class ReservationService extends AbstractService {
 	
 	@WebMethod
+	public List<Reservation> listerTout() {	
+		return getDaoFactory().getReservationDao().listerTout();
+	}
+	
+	@WebMethod
+	public List<Reservation> listerParUsager(String mailUsager) {
+		return getDaoFactory().getReservationDao().listerParUsager(mailUsager);
+	}
+	
+	@WebMethod
 	public void ajouter(String mailUsager, Integer idOuvrage) {
 		ReservationDao reservationDao = getDaoFactory().getReservationDao();
 		
-		int nbReservations = reservationDao.enumererParOuvrage(idOuvrage);
+		int position = reservationDao.enumererParOuvrage(idOuvrage) + 1;
 		
-		reservationDao.creer(nbReservations + 1, mailUsager, idOuvrage);
+		reservationDao.creer(position, mailUsager, idOuvrage);
 	}
 	
 	@WebMethod
@@ -27,10 +37,19 @@ public class ReservationService extends AbstractService {
 		
 		List<Reservation> reservations = reservationDao.listerParOuvrageEtPositionSuperieur(position, idOuvrage);
 		for (Reservation reservation : reservations) {
-			reservation.setPosition(reservation.getPosition() -  1);
+			int newPosition = reservation.getPosition() - 1;
+			reservationDao.modifierPosition(newPosition, reservation.getMailUsager(), idOuvrage);
 		}
 		
 		reservationDao.supprimer(mailUsager, idOuvrage);
 	}
+	
+	@WebMethod
+	public Integer enumererParOuvrage(Integer idOuvrage) {
+		ReservationDao reservationDao = getDaoFactory().getReservationDao();
+		
+		return reservationDao.enumererParOuvrage(idOuvrage);
+	}
+	
 
 }

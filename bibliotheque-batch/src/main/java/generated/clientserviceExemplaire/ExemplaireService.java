@@ -29,21 +29,6 @@ public interface ExemplaireService {
      * 
      * @param arg0
      * @return
-     *     returns generated.clientserviceExemplaire.Exemplaire
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "trouverExemplaire", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceExemplaire.TrouverExemplaire")
-    @ResponseWrapper(localName = "trouverExemplaireResponse", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceExemplaire.TrouverExemplaireResponse")
-    @Action(input = "http://services.webservice.ocp4.com/ExemplaireService/trouverExemplaireRequest", output = "http://services.webservice.ocp4.com/ExemplaireService/trouverExemplaireResponse")
-    public Exemplaire trouverExemplaire(
-        @WebParam(name = "arg0", targetNamespace = "")
-        Integer arg0);
-
-    /**
-     * 
-     * @param arg0
-     * @return
      *     returns java.util.List<generated.clientserviceExemplaire.Exemplaire>
      */
     @WebMethod
@@ -54,5 +39,20 @@ public interface ExemplaireService {
     public List<Exemplaire> listerParEdition(
         @WebParam(name = "arg0", targetNamespace = "")
         String arg0);
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns generated.clientserviceExemplaire.Exemplaire
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "trouverExemplaire", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceExemplaire.TrouverExemplaire")
+    @ResponseWrapper(localName = "trouverExemplaireResponse", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceExemplaire.TrouverExemplaireResponse")
+    @Action(input = "http://services.webservice.ocp4.com/ExemplaireService/trouverExemplaireRequest", output = "http://services.webservice.ocp4.com/ExemplaireService/trouverExemplaireResponse")
+    public Exemplaire trouverExemplaire(
+        @WebParam(name = "arg0", targetNamespace = "")
+        Integer arg0);
 
 }

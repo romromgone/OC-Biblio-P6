@@ -7,6 +7,7 @@ public class WsdlLocation {
 	private String wsdlLocationEdition;
 	private String wsdlLocationExemplaire;
 	private String wsdlLocationEmprunt;
+	private String wsdlLocationReservation;
 	 
 	 
 	public String getWsdlLocationUsager() {
@@ -43,4 +44,12 @@ public class WsdlLocation {
 	public void setWsdlLocationEmprunt(String wsdlLocationEmprunt) {
 		this.wsdlLocationEmprunt = wsdlLocationEmprunt;
 	}
+	
+	public String getWsdlLocationReservation() {
+		return wsdlLocationReservation;
+	}
+	public void setWsdlLocationReservation(String wsdlLocationReservation) {
+		this.wsdlLocationReservation = wsdlLocationReservation;
+	}
+	
 }

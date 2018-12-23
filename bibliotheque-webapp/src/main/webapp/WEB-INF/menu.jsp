@@ -31,6 +31,14 @@
 	    			<s:a class="nav-link disabled" action="#" id="navEmprunts"> Mes emprunts</s:a>
 	    		</s:else>	
 		    </li>
+		    <li class="nav-item">
+		    	<s:if test="#session.usager">	
+		    		<s:a class="nav-link" action="reservations" id="navReservations"> Mes réservations</s:a>
+	    		</s:if>
+	    		<s:else>
+	    			<s:a class="nav-link disabled" action="#" id="navReservations"> Mes réservations</s:a>
+	    		</s:else>	
+		    </li>
 		  </ul>
 		  <ul class="navbar-nav ml-auto">
 		    <li class="dropdown">
@@ -45,6 +53,7 @@
  									<div class="list-group list-group-flush">
 									  <s:a action="infospersos" class="list-group-item list-group-item-action" id="dropdownInfos">Infos persos</s:a>
 									  <s:a action="emprunts" class="list-group-item list-group-item-action" id="dropdownEmprunts">Mes emprunts</s:a>
+									  <s:a action="reservations" class="list-group-item list-group-item-action" id="dropdownReservations">Mes réservations</s:a>
 									  <s:a action="deconnexion" class="list-group-item list-group-item-dark" id="dropdownDeco">Déconnexion</s:a>
 									</div>
  								</div>	 													

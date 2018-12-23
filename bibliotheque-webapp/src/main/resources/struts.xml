@@ -80,5 +80,41 @@
     				<result name="error">index.jsp</result>				
 				</action>
 				
+				<!-- Action "reserver" -->
+				<action name="reserver" class="com.ocp4.webapp.actions.OuvragesAction" method="doReserver">
+						<interceptor-ref name="store">
+				        <param name="operationMode">STORE</param>
+				    </interceptor-ref>
+				    <interceptor-ref name="defaultStack" />
+				    
+    				<result name="input">/WEB-INF/ouvrages.jsp</result>
+    				<result name="success">/WEB-INF/ouvrages.jsp</result>   
+    				<result name="error">/WEB-INF/ouvrages.jsp</result>				
+				</action>
+				
+				<!-- Action "reservations" -->
+				<action name="reservations" class="com.ocp4.webapp.actions.ReservationsAction" method="doReservations">
+						<interceptor-ref name="store">
+				        <param name="operationMode">STORE</param>
+				    </interceptor-ref>
+				    <interceptor-ref name="defaultStack" />
+				    
+				    <result name="input">/WEB-INF/reservations.jsp</result>
+    				<result name="success">/WEB-INF/reservations.jsp</result>
+    				<result name="error">index.jsp</result>					
+				</action>
+				
+				<!-- Action "annuler" -->
+				<action name="annuler" class="com.ocp4.webapp.actions.ReservationsAction" method="doAnnuler">
+						<interceptor-ref name="store">
+				        <param name="operationMode">STORE</param>
+				    </interceptor-ref>
+				    <interceptor-ref name="defaultStack" />
+				    
+    				<result name="input">/WEB-INF/reservations.jsp</result>
+    				<result type="redirectAction">reservations</result>  
+    				<result name="error">index.jsp</result>				
+				</action>
+				
     </package>
 </struts>

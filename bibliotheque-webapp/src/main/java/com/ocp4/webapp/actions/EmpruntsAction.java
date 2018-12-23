@@ -85,7 +85,7 @@ public class EmpruntsAction extends ActionSupport implements SessionAware {
         }
         else {
         	try {
-        		int result = getEmpruntService().prolonger(usager.getMail(), idExemplaire, dateDeb);
+        		getEmpruntService().prolonger(usager.getMail(), idExemplaire, dateDeb);
             	vResult = ActionSupport.SUCCESS;
         	} catch (RuntimeException e) {
         		this.addActionError("Erreur prolongation");

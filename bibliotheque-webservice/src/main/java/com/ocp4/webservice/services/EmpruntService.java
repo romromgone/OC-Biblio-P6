@@ -7,19 +7,17 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javax.inject.Inject;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 
+import com.ocp4.webservice.beans.Edition;
 import com.ocp4.webservice.beans.Emprunt;
 import com.ocp4.webservice.beans.Exemplaire;
+import com.ocp4.webservice.dao.EmpruntDao;
 
 
 @WebService(serviceName = "EmpruntService")
 public class EmpruntService extends AbstractService {
-	
-	@Inject
-	ExemplaireService exemplaireService;
 
 	@WebMethod
 	public Emprunt trouverEmprunt(String mail, Integer idExemplaire, String dateDeb) throws ParseException {
@@ -53,13 +51,15 @@ public class EmpruntService extends AbstractService {
 	@WebMethod
 	public List<Emprunt> listerEnCoursParOuvrage(Integer idOuvrage) {
 		List<Emprunt> emprunts = new ArrayList<>();
+		EmpruntDao empruntDao = getDaoFactory().getEmpruntDao();
 		
-		List<Exemplaire> exemplaires = exemplaireService.listerParOuvrage(idOuvrage);		
+		List<Exemplaire> exemplaires = listerParOuvrage(idOuvrage);	   
 		for (Exemplaire exemplaire : exemplaires) {
-			Emprunt empruntEnCours = getDaoFactory().getEmpruntDao().listerEnCoursParExemplaire(exemplaire.getId()).get(0);
-			Emprunt empruntNonRendu = getDaoFactory().getEmpruntDao().listerNonRendusParExemplaire(exemplaire.getId()).get(0);
-			if (empruntEnCours != null) emprunts.add(empruntEnCours);
-			else if (empruntNonRendu != null) emprunts.add(empruntNonRendu);
+			if(empruntDao.enCoursParExemplaire(exemplaire.getId())) {
+				emprunts.add(empruntDao.trouverEnCoursParExemplaire(exemplaire.getId()));
+			} else if (empruntDao.nonRendusParExemplaire(exemplaire.getId())) {
+				emprunts.add(empruntDao.trouverNonRendusParExemplaire(exemplaire.getId()));
+			}			
 		}
 		return emprunts;
 	}
@@ -74,6 +74,20 @@ public class EmpruntService extends AbstractService {
 		}
 		Date minDate = java.util.Collections.min(datesFin);
 		return df.format(minDate);
+	}
+	
+	
+	private List<Exemplaire> listerParOuvrage(Integer idOuvrage) {
+		List<Exemplaire> listeExemplaires = new ArrayList<>();
+		
+		List<Edition> editions = getDaoFactory().getEditionDao().listerParOuvrage(idOuvrage);
+	    for (Edition edition : editions) {
+	    	List<Exemplaire> exemplaires = getDaoFactory().getExemplaireDao().listerParEdition(edition.getIsbn());
+	    	for (Exemplaire exemplaire : exemplaires) {
+	    		listeExemplaires.add(exemplaire);
+	    	}
+	    }
+	    return listeExemplaires;
 	}
 	
 }
