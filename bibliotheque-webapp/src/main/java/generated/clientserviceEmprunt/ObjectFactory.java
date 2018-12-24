@@ -27,10 +27,12 @@ public class ObjectFactory {
     private final static QName _ListerEnCoursParUsagerResponse_QNAME = new QName("http://services.webservice.ocp4.com/", "listerEnCoursParUsagerResponse");
     private final static QName _ListerNonRendusParUsagerResponse_QNAME = new QName("http://services.webservice.ocp4.com/", "listerNonRendusParUsagerResponse");
     private final static QName _GetDateRetourPlusProcheParOuvrageResponse_QNAME = new QName("http://services.webservice.ocp4.com/", "getDateRetourPlusProcheParOuvrageResponse");
+    private final static QName _ListerParUsagerEtBientotAExpirationResponse_QNAME = new QName("http://services.webservice.ocp4.com/", "listerParUsagerEtBientotAExpirationResponse");
     private final static QName _ListerEnCoursParOuvrage_QNAME = new QName("http://services.webservice.ocp4.com/", "listerEnCoursParOuvrage");
     private final static QName _ListerNonRendus_QNAME = new QName("http://services.webservice.ocp4.com/", "listerNonRendus");
     private final static QName _ListerNonRendusParUsager_QNAME = new QName("http://services.webservice.ocp4.com/", "listerNonRendusParUsager");
     private final static QName _TrouverEmprunt_QNAME = new QName("http://services.webservice.ocp4.com/", "trouverEmprunt");
+    private final static QName _ListerParUsagerEtBientotAExpiration_QNAME = new QName("http://services.webservice.ocp4.com/", "listerParUsagerEtBientotAExpiration");
     private final static QName _ListerEnCoursParOuvrageResponse_QNAME = new QName("http://services.webservice.ocp4.com/", "listerEnCoursParOuvrageResponse");
     private final static QName _GetDateRetourPlusProcheParOuvrage_QNAME = new QName("http://services.webservice.ocp4.com/", "getDateRetourPlusProcheParOuvrage");
     private final static QName _ListerEnCoursParUsager_QNAME = new QName("http://services.webservice.ocp4.com/", "listerEnCoursParUsager");
@@ -64,6 +66,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link ListerParUsagerEtBientotAExpiration }
+     * 
+     */
+    public ListerParUsagerEtBientotAExpiration createListerParUsagerEtBientotAExpiration() {
+        return new ListerParUsagerEtBientotAExpiration();
+    }
+
+    /**
      * Create an instance of {@link ListerEnCoursParOuvrageResponse }
      * 
      */
@@ -93,6 +103,14 @@ public class ObjectFactory {
      */
     public GetDateRetourPlusProcheParOuvrageResponse createGetDateRetourPlusProcheParOuvrageResponse() {
         return new GetDateRetourPlusProcheParOuvrageResponse();
+    }
+
+    /**
+     * Create an instance of {@link ListerParUsagerEtBientotAExpirationResponse }
+     * 
+     */
+    public ListerParUsagerEtBientotAExpirationResponse createListerParUsagerEtBientotAExpirationResponse() {
+        return new ListerParUsagerEtBientotAExpirationResponse();
     }
 
     /**
@@ -235,6 +253,15 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ListerParUsagerEtBientotAExpirationResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://services.webservice.ocp4.com/", name = "listerParUsagerEtBientotAExpirationResponse")
+    public JAXBElement<ListerParUsagerEtBientotAExpirationResponse> createListerParUsagerEtBientotAExpirationResponse(ListerParUsagerEtBientotAExpirationResponse value) {
+        return new JAXBElement<ListerParUsagerEtBientotAExpirationResponse>(_ListerParUsagerEtBientotAExpirationResponse_QNAME, ListerParUsagerEtBientotAExpirationResponse.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link ListerEnCoursParOuvrage }{@code >}}
      * 
      */
@@ -268,6 +295,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://services.webservice.ocp4.com/", name = "trouverEmprunt")
     public JAXBElement<TrouverEmprunt> createTrouverEmprunt(TrouverEmprunt value) {
         return new JAXBElement<TrouverEmprunt>(_TrouverEmprunt_QNAME, TrouverEmprunt.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ListerParUsagerEtBientotAExpiration }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://services.webservice.ocp4.com/", name = "listerParUsagerEtBientotAExpiration")
+    public JAXBElement<ListerParUsagerEtBientotAExpiration> createListerParUsagerEtBientotAExpiration(ListerParUsagerEtBientotAExpiration value) {
+        return new JAXBElement<ListerParUsagerEtBientotAExpiration>(_ListerParUsagerEtBientotAExpiration_QNAME, ListerParUsagerEtBientotAExpiration.class, null, value);
     }
 
     /**

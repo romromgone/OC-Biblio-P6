@@ -28,83 +28,6 @@ public interface EmpruntService {
 
     /**
      * 
-     * @param arg0
-     * @return
-     *     returns java.util.List<generated.clientserviceEmprunt.Emprunt>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listerNonRendusParUsager", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceEmprunt.ListerNonRendusParUsager")
-    @ResponseWrapper(localName = "listerNonRendusParUsagerResponse", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceEmprunt.ListerNonRendusParUsagerResponse")
-    @Action(input = "http://services.webservice.ocp4.com/EmpruntService/listerNonRendusParUsagerRequest", output = "http://services.webservice.ocp4.com/EmpruntService/listerNonRendusParUsagerResponse")
-    public List<Emprunt> listerNonRendusParUsager(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0);
-
-    /**
-     * 
-     * @param arg0
-     * @return
-     *     returns java.util.List<generated.clientserviceEmprunt.Emprunt>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listerEnCoursParOuvrage", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceEmprunt.ListerEnCoursParOuvrage")
-    @ResponseWrapper(localName = "listerEnCoursParOuvrageResponse", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceEmprunt.ListerEnCoursParOuvrageResponse")
-    @Action(input = "http://services.webservice.ocp4.com/EmpruntService/listerEnCoursParOuvrageRequest", output = "http://services.webservice.ocp4.com/EmpruntService/listerEnCoursParOuvrageResponse")
-    public List<Emprunt> listerEnCoursParOuvrage(
-        @WebParam(name = "arg0", targetNamespace = "")
-        Integer arg0);
-
-    /**
-     * 
-     * @param arg0
-     * @return
-     *     returns java.util.List<generated.clientserviceEmprunt.Emprunt>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listerEnCoursParUsager", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceEmprunt.ListerEnCoursParUsager")
-    @ResponseWrapper(localName = "listerEnCoursParUsagerResponse", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceEmprunt.ListerEnCoursParUsagerResponse")
-    @Action(input = "http://services.webservice.ocp4.com/EmpruntService/listerEnCoursParUsagerRequest", output = "http://services.webservice.ocp4.com/EmpruntService/listerEnCoursParUsagerResponse")
-    public List<Emprunt> listerEnCoursParUsager(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0);
-
-    /**
-     * 
-     * @param arg0
-     * @return
-     *     returns java.lang.String
-     * @throws ParseException_Exception
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getDateRetourPlusProcheParOuvrage", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceEmprunt.GetDateRetourPlusProcheParOuvrage")
-    @ResponseWrapper(localName = "getDateRetourPlusProcheParOuvrageResponse", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceEmprunt.GetDateRetourPlusProcheParOuvrageResponse")
-    @Action(input = "http://services.webservice.ocp4.com/EmpruntService/getDateRetourPlusProcheParOuvrageRequest", output = "http://services.webservice.ocp4.com/EmpruntService/getDateRetourPlusProcheParOuvrageResponse", fault = {
-        @FaultAction(className = ParseException_Exception.class, value = "http://services.webservice.ocp4.com/EmpruntService/getDateRetourPlusProcheParOuvrage/Fault/ParseException")
-    })
-    public String getDateRetourPlusProcheParOuvrage(
-        @WebParam(name = "arg0", targetNamespace = "")
-        Integer arg0)
-        throws ParseException_Exception
-    ;
-
-    /**
-     * 
-     * @return
-     *     returns java.util.List<generated.clientserviceEmprunt.Emprunt>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listerNonRendus", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceEmprunt.ListerNonRendus")
-    @ResponseWrapper(localName = "listerNonRendusResponse", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceEmprunt.ListerNonRendusResponse")
-    @Action(input = "http://services.webservice.ocp4.com/EmpruntService/listerNonRendusRequest", output = "http://services.webservice.ocp4.com/EmpruntService/listerNonRendusResponse")
-    public List<Emprunt> listerNonRendus();
-
-    /**
-     * 
      * @param arg2
      * @param arg1
      * @param arg0
@@ -154,5 +77,97 @@ public interface EmpruntService {
         String arg2)
         throws ParseException_Exception
     ;
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<generated.clientserviceEmprunt.Emprunt>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listerNonRendus", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceEmprunt.ListerNonRendus")
+    @ResponseWrapper(localName = "listerNonRendusResponse", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceEmprunt.ListerNonRendusResponse")
+    @Action(input = "http://services.webservice.ocp4.com/EmpruntService/listerNonRendusRequest", output = "http://services.webservice.ocp4.com/EmpruntService/listerNonRendusResponse")
+    public List<Emprunt> listerNonRendus();
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns java.util.List<generated.clientserviceEmprunt.Emprunt>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listerParUsagerEtBientotAExpiration", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceEmprunt.ListerParUsagerEtBientotAExpiration")
+    @ResponseWrapper(localName = "listerParUsagerEtBientotAExpirationResponse", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceEmprunt.ListerParUsagerEtBientotAExpirationResponse")
+    @Action(input = "http://services.webservice.ocp4.com/EmpruntService/listerParUsagerEtBientotAExpirationRequest", output = "http://services.webservice.ocp4.com/EmpruntService/listerParUsagerEtBientotAExpirationResponse")
+    public List<Emprunt> listerParUsagerEtBientotAExpiration(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0);
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns java.lang.String
+     * @throws ParseException_Exception
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getDateRetourPlusProcheParOuvrage", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceEmprunt.GetDateRetourPlusProcheParOuvrage")
+    @ResponseWrapper(localName = "getDateRetourPlusProcheParOuvrageResponse", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceEmprunt.GetDateRetourPlusProcheParOuvrageResponse")
+    @Action(input = "http://services.webservice.ocp4.com/EmpruntService/getDateRetourPlusProcheParOuvrageRequest", output = "http://services.webservice.ocp4.com/EmpruntService/getDateRetourPlusProcheParOuvrageResponse", fault = {
+        @FaultAction(className = ParseException_Exception.class, value = "http://services.webservice.ocp4.com/EmpruntService/getDateRetourPlusProcheParOuvrage/Fault/ParseException")
+    })
+    public String getDateRetourPlusProcheParOuvrage(
+        @WebParam(name = "arg0", targetNamespace = "")
+        Integer arg0)
+        throws ParseException_Exception
+    ;
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns java.util.List<generated.clientserviceEmprunt.Emprunt>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listerNonRendusParUsager", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceEmprunt.ListerNonRendusParUsager")
+    @ResponseWrapper(localName = "listerNonRendusParUsagerResponse", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceEmprunt.ListerNonRendusParUsagerResponse")
+    @Action(input = "http://services.webservice.ocp4.com/EmpruntService/listerNonRendusParUsagerRequest", output = "http://services.webservice.ocp4.com/EmpruntService/listerNonRendusParUsagerResponse")
+    public List<Emprunt> listerNonRendusParUsager(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0);
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns java.util.List<generated.clientserviceEmprunt.Emprunt>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listerEnCoursParUsager", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceEmprunt.ListerEnCoursParUsager")
+    @ResponseWrapper(localName = "listerEnCoursParUsagerResponse", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceEmprunt.ListerEnCoursParUsagerResponse")
+    @Action(input = "http://services.webservice.ocp4.com/EmpruntService/listerEnCoursParUsagerRequest", output = "http://services.webservice.ocp4.com/EmpruntService/listerEnCoursParUsagerResponse")
+    public List<Emprunt> listerEnCoursParUsager(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0);
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns java.util.List<generated.clientserviceEmprunt.Emprunt>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listerEnCoursParOuvrage", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceEmprunt.ListerEnCoursParOuvrage")
+    @ResponseWrapper(localName = "listerEnCoursParOuvrageResponse", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceEmprunt.ListerEnCoursParOuvrageResponse")
+    @Action(input = "http://services.webservice.ocp4.com/EmpruntService/listerEnCoursParOuvrageRequest", output = "http://services.webservice.ocp4.com/EmpruntService/listerEnCoursParOuvrageResponse")
+    public List<Emprunt> listerEnCoursParOuvrage(
+        @WebParam(name = "arg0", targetNamespace = "")
+        Integer arg0);
 
 }

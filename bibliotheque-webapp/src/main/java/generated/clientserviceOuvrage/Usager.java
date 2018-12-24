@@ -1,5 +1,5 @@
 
-package generated.clientserviceUsager;
+package generated.clientserviceOuvrage;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -19,7 +19,6 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="mail" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="mdp" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="nom" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="optionRappel" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
  *         &lt;element name="prenom" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="telephone" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
@@ -35,7 +34,6 @@ import javax.xml.bind.annotation.XmlType;
     "mail",
     "mdp",
     "nom",
-    "optionRappel",
     "prenom",
     "telephone"
 })
@@ -44,7 +42,6 @@ public class Usager {
     protected String mail;
     protected String mdp;
     protected String nom;
-    protected Boolean optionRappel;
     protected String prenom;
     protected String telephone;
 
@@ -118,30 +115,6 @@ public class Usager {
      */
     public void setNom(String value) {
         this.nom = value;
-    }
-
-    /**
-     * Obtient la valeur de la propriété optionRappel.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
-     */
-    public Boolean isOptionRappel() {
-        return optionRappel;
-    }
-
-    /**
-     * Définit la valeur de la propriété optionRappel.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
-     */
-    public void setOptionRappel(Boolean value) {
-        this.optionRappel = value;
     }
 
     /**

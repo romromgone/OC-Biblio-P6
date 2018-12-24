@@ -46,6 +46,18 @@
     				<result name="error">index.jsp</result>
 				</action>
 				
+				<!-- Action "modifierOptionRappel" -->
+				<action name="modifierOptionRappel" class="com.ocp4.webapp.actions.InfosPersosAction" method="doModifierOptionRappel">
+						<interceptor-ref name="store">
+				        <param name="operationMode">STORE</param>
+				    </interceptor-ref>
+				    <interceptor-ref name="defaultStack" />
+				    
+    				<result name="input">/WEB-INF/infospersos.jsp</result>
+    				<result type="redirectAction">infospersos</result> 
+    				<result name="error">index.jsp</result>
+				</action>
+				
 				<!-- Action "emprunts" -->
 				<action name="emprunts" class="com.ocp4.webapp.actions.EmpruntsAction" method="doEmprunts">
 						<interceptor-ref name="store">

@@ -167,6 +167,30 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link Usager }
+     * 
+     */
+    public Usager createUsager() {
+        return new Usager();
+    }
+
+    /**
+     * Create an instance of {@link Reservation }
+     * 
+     */
+    public Reservation createReservation() {
+        return new Reservation();
+    }
+
+    /**
+     * Create an instance of {@link Timestamp }
+     * 
+     */
+    public Timestamp createTimestamp() {
+        return new Timestamp();
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TrouverOuvrageResponse }{@code >}}
      * 
      */

@@ -2,7 +2,6 @@ package com.ocp4.webapp.actions;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -16,9 +15,6 @@ import generated.clientserviceReservation.ReservationService_Service;
 import generated.clientserviceEmprunt.EmpruntService;
 import generated.clientserviceEmprunt.EmpruntService_Service;
 import generated.clientserviceEmprunt.ParseException_Exception;
-import generated.clientserviceOuvrage.Ouvrage;
-import generated.clientserviceOuvrage.OuvrageService;
-import generated.clientserviceOuvrage.OuvrageService_Service;
 import generated.clientserviceUsager.Usager;
 
 
@@ -113,21 +109,6 @@ public class ReservationsAction  extends ActionSupport implements SessionAware {
 		ReservationService_Service reservationServiceService = new ReservationService_Service(wsdlLocationReservation);
 		reservationService = reservationServiceService.getReservationServicePort(); 
 		return reservationService;
-    }
-	
-	private OuvrageService getOuvrageService() {
-		OuvrageService ouvrageService;
-    	URL wsdlLocationOuvrage = null;
-    	
-    	try {
-    		wsdlLocationOuvrage = new URL(getText("WSDLLocationOuvrage"));
-		} catch (MalformedURLException e) {		
-			e.printStackTrace();
-		}
-
-		OuvrageService_Service ouvrageServiceService = new OuvrageService_Service(wsdlLocationOuvrage);
-		ouvrageService = ouvrageServiceService.getOuvrageServicePort(); 
-		return ouvrageService;
     }
 	
 	private EmpruntService getEmpruntService() {

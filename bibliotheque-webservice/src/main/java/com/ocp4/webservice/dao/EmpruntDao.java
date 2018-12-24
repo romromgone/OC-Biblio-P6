@@ -12,6 +12,7 @@ public interface EmpruntDao {
 	List<Emprunt> listerNonRendus();
 	List<Emprunt> listerEnCoursParUsager(String mail);
 	List<Emprunt> listerNonRendusParUsager(String mail);
+	List<Emprunt> listerParUsagerEtBientotAExpiration(String mail);
 	Boolean enCoursParExemplaire(Integer idExemplaire);
 	Boolean nonRendusParExemplaire(Integer idExemplaire);
 	Emprunt trouverEnCoursParExemplaire(Integer idExemplaire);

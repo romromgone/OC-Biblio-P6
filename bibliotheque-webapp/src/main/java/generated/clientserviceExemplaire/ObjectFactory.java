@@ -28,6 +28,8 @@ public class ObjectFactory {
     private final static QName _TrouverExemplaire_QNAME = new QName("http://services.webservice.ocp4.com/", "trouverExemplaire");
     private final static QName _TrouverExemplaireResponse_QNAME = new QName("http://services.webservice.ocp4.com/", "trouverExemplaireResponse");
     private final static QName _ListerParEdition_QNAME = new QName("http://services.webservice.ocp4.com/", "listerParEdition");
+    private final static QName _TrouverExemplaireDisponible_QNAME = new QName("http://services.webservice.ocp4.com/", "trouverExemplaireDisponible");
+    private final static QName _TrouverExemplaireDisponibleResponse_QNAME = new QName("http://services.webservice.ocp4.com/", "trouverExemplaireDisponibleResponse");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: generated.clientserviceExemplaire
@@ -37,11 +39,27 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link TrouverExemplaireDisponibleResponse }
+     * 
+     */
+    public TrouverExemplaireDisponibleResponse createTrouverExemplaireDisponibleResponse() {
+        return new TrouverExemplaireDisponibleResponse();
+    }
+
+    /**
      * Create an instance of {@link ListerParEdition }
      * 
      */
     public ListerParEdition createListerParEdition() {
         return new ListerParEdition();
+    }
+
+    /**
+     * Create an instance of {@link TrouverExemplaireDisponible }
+     * 
+     */
+    public TrouverExemplaireDisponible createTrouverExemplaireDisponible() {
+        return new TrouverExemplaireDisponible();
     }
 
     /**
@@ -126,6 +144,24 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://services.webservice.ocp4.com/", name = "listerParEdition")
     public JAXBElement<ListerParEdition> createListerParEdition(ListerParEdition value) {
         return new JAXBElement<ListerParEdition>(_ListerParEdition_QNAME, ListerParEdition.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link TrouverExemplaireDisponible }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://services.webservice.ocp4.com/", name = "trouverExemplaireDisponible")
+    public JAXBElement<TrouverExemplaireDisponible> createTrouverExemplaireDisponible(TrouverExemplaireDisponible value) {
+        return new JAXBElement<TrouverExemplaireDisponible>(_TrouverExemplaireDisponible_QNAME, TrouverExemplaireDisponible.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link TrouverExemplaireDisponibleResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://services.webservice.ocp4.com/", name = "trouverExemplaireDisponibleResponse")
+    public JAXBElement<TrouverExemplaireDisponibleResponse> createTrouverExemplaireDisponibleResponse(TrouverExemplaireDisponibleResponse value) {
+        return new JAXBElement<TrouverExemplaireDisponibleResponse>(_TrouverExemplaireDisponibleResponse_QNAME, TrouverExemplaireDisponibleResponse.class, null, value);
     }
 
 }

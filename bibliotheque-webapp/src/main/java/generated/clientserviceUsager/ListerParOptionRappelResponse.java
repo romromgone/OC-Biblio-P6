@@ -1,5 +1,5 @@
 
-package generated.clientserviceReservation;
+package generated.clientserviceUsager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,16 +10,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java pour listerToutResponse complex type.
+ * <p>Classe Java pour listerParOptionRappelResponse complex type.
  * 
  * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
  * 
  * <pre>
- * &lt;complexType name="listerToutResponse">
+ * &lt;complexType name="listerParOptionRappelResponse">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="return" type="{http://services.webservice.ocp4.com/}reservation" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="return" type="{http://services.webservice.ocp4.com/}usager" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -29,13 +29,13 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "listerToutResponse", propOrder = {
+@XmlType(name = "listerParOptionRappelResponse", propOrder = {
     "_return"
 })
-public class ListerToutResponse {
+public class ListerParOptionRappelResponse {
 
     @XmlElement(name = "return")
-    protected List<Reservation> _return;
+    protected List<Usager> _return;
 
     /**
      * Gets the value of the return property.
@@ -55,13 +55,13 @@ public class ListerToutResponse {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Reservation }
+     * {@link Usager }
      * 
      * 
      */
-    public List<Reservation> getReturn() {
+    public List<Usager> getReturn() {
         if (_return == null) {
-            _return = new ArrayList<Reservation>();
+            _return = new ArrayList<Usager>();
         }
         return this._return;
     }

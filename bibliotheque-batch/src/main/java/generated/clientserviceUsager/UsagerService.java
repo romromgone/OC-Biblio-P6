@@ -1,6 +1,7 @@
 
 package generated.clientserviceUsager;
 
+import java.util.List;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
@@ -23,6 +24,33 @@ import javax.xml.ws.ResponseWrapper;
 })
 public interface UsagerService {
 
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<generated.clientserviceUsager.Usager>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listerParOptionRappel", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceUsager.ListerParOptionRappel")
+    @ResponseWrapper(localName = "listerParOptionRappelResponse", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceUsager.ListerParOptionRappelResponse")
+    @Action(input = "http://services.webservice.ocp4.com/UsagerService/listerParOptionRappelRequest", output = "http://services.webservice.ocp4.com/UsagerService/listerParOptionRappelResponse")
+    public List<Usager> listerParOptionRappel();
+
+    /**
+     * 
+     * @param arg1
+     * @param arg0
+     */
+    @WebMethod
+    @RequestWrapper(localName = "modifierOptionRappel", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceUsager.ModifierOptionRappel")
+    @ResponseWrapper(localName = "modifierOptionRappelResponse", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceUsager.ModifierOptionRappelResponse")
+    @Action(input = "http://services.webservice.ocp4.com/UsagerService/modifierOptionRappelRequest", output = "http://services.webservice.ocp4.com/UsagerService/modifierOptionRappelResponse")
+    public void modifierOptionRappel(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        Boolean arg1);
 
     /**
      * 

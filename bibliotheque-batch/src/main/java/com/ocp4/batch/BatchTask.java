@@ -24,6 +24,9 @@ import generated.clientserviceExemplaire.ExemplaireService_Service;
 import generated.clientserviceReservation.Reservation;
 import generated.clientserviceReservation.ReservationService;
 import generated.clientserviceReservation.ReservationService_Service;
+import generated.clientserviceUsager.Usager;
+import generated.clientserviceUsager.UsagerService;
+import generated.clientserviceUsager.UsagerService_Service;
 
 
 @Component
@@ -42,6 +45,7 @@ public class BatchTask
     	TaskAvertirNonRendu();
     	TaskInformerExemplaireDispo();
     	TaskTraiterReservationsDelaisDepasses();
+    	TaskRappelerFinEmpruntProche();
     }
     
     private void TaskAvertirNonRendu() {
@@ -128,6 +132,44 @@ public class BatchTask
 		System.out.println("--> "+LocalDateTime.now()+"; Effectué !");	
     }
     
+    private void TaskRappelerFinEmpruntProche() {
+    	long pauseEmail=0;  
+    	String txtEmprunt = "";
+    	
+    	List<Usager> usagers = getUsagerService().listerParOptionRappel();
+    	System.out.println(usagers.size());
+    	
+    	System.out.println("Envoi des mails de rappel avant la fin des prêts");
+    	
+    	for (Usager usager : usagers) {
+    		txtEmprunt = "";
+    		if (! getEmpruntService().listerParUsagerEtBientotAExpiration(usager.getMail()).isEmpty()) {
+    			
+    			System.out.println(usager.getMail());
+    			List<Emprunt> emprunts = getEmpruntService().listerParUsagerEtBientotAExpiration(usager.getMail());
+    			
+    			for (Emprunt emprunt : emprunts) {
+        			txtEmprunt += "- " + "\"" + emprunt.getExemplaire().getEdition().getOuvrage().getTitre() + "\"" + " de " + emprunt.getExemplaire().getEdition().getOuvrage().getAuteur() + " prend fin le : " + emprunt.getDateFin() + separateur ;
+    			}
+    		
+    			while (System.currentTimeMillis()<pauseEmail) {}
+                pauseEmail = System.currentTimeMillis() + emailConnexion.getConnexionEmailDelay();
+                
+                String text = "Bonjour " + usager.getPrenom() + " " + usager.getNom() + "," 
+            			+ separateur + separateur + "Ceci est un mail de rappel pour vous informer que vos prêts suivants se terminent dans moins de 5 jours : " + separateur + separateur  
+            			+ txtEmprunt    			
+            			+ "N'oubliez pas de nous les ramener avant leur date butoir." + separateur + separateur 
+            		    + "Cordialement. Votre bibliothèque.";
+                
+                String erreur = EnvoyerMail(emailConnexion.getConnexionHost(), emailConnexion.getConnexionUsername(), emailConnexion.getConnexionPassword(), emailConnexion.getConnexionFrom(), "Rappel de vos prêts prenant bientôt fin", text, usager.getMail());          
+                if (erreur != "Sending OK") {
+                    System.out.println(LocalDateTime.now() + "- Mail usager : " + usager.getMail() + erreur);
+                }
+    		}
+    	}
+		System.out.println("--> "+LocalDateTime.now()+"; Effectué !");	
+    }
+    
     
     private String EnvoyerMail(String host, String userName, String password, String from, String subject, String message, String recipient) {
         Email email= new SimpleEmail();
@@ -190,6 +232,21 @@ public class BatchTask
 		EmpruntService_Service empruntServiceService = new EmpruntService_Service(wsdlLocationEmprunt);
 		empruntService = empruntServiceService.getEmpruntServicePort(); 
 		return empruntService;
+    }
+    
+    private UsagerService getUsagerService() {
+		UsagerService usagerService;
+    	URL wsdlLocationUsager = null;
+    	
+    	try {
+    		wsdlLocationUsager = new URL(wsdlLocation.getWsdlLocationUsager());
+		} catch (MalformedURLException e) {		
+			e.printStackTrace();
+		}
+
+		UsagerService_Service usagerServiceService = new UsagerService_Service(wsdlLocationUsager);
+		usagerService = usagerServiceService.getUsagerServicePort(); 
+		return usagerService;
     }
     
 }

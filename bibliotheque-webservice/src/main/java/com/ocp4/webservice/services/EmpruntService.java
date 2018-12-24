@@ -65,6 +65,12 @@ public class EmpruntService extends AbstractService {
 	}
 	
 	@WebMethod
+	public List<Emprunt> listerParUsagerEtBientotAExpiration(String mail) {
+		List<Emprunt> emprunts = getDaoFactory().getEmpruntDao().listerParUsagerEtBientotAExpiration(mail);
+		return emprunts;
+	}
+	
+	@WebMethod
 	public String getDateRetourPlusProcheParOuvrage(Integer idOuvrage) throws ParseException {
 		DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 		List<Date> datesFin = new ArrayList<>();

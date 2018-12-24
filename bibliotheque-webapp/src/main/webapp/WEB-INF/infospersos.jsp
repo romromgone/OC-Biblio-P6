@@ -15,7 +15,7 @@
 	     	<div class="card">
 	 				<div class="card-header ">Infos Persos</div>
 	 				<div class="card-body col-md-12">
-	  				<form>
+	  				
 		  				<div class="form-group row">
 		    				<label class="col-md-4 col-form-label" for="prenom">Prénom</label>
 		    				<div class="col-md-6">
@@ -39,8 +39,20 @@
 		    				<div class="col-md-6">
 		    					<input type="text" readonly class="form-control-plaintext" id="cp" name="cp" value="${session.usager.telephone}">	    					
 		    				</div>
-		  				</div>		  			
-						</form>   			
+		  				</div>
+		  				<div class="form-group row">
+		    				<label class="col-md-4 col-form-label" for="cp">Option de rappel :</label>
+		    				<div class="col-md-6">
+		    				<s:form method="post" action="modifierOptionRappel" id="form" name="form" > 
+		    					<s:if test="%{usager.optionRappel == true}">		    				
+					      		<s:submit class="btn btn-info btn-sm" value="Désactiver" />	 
+					      	</s:if>
+					      	<s:if test="%{usager.optionRappel == false}">				      	
+					      		<s:submit class="btn btn-info btn-sm" value="Activer" />	 
+					      	</s:if>	
+				      	</s:form> 					
+		    				</div>
+		  				</div>			  						  			
 	     	  </div>
 	       </div>
 	     </div>

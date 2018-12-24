@@ -28,6 +28,7 @@ public class EmpruntDaoImpl extends AbstractDaoImpl implements EmpruntDao {
 	private static final String SQL_UPDATE_PROLONGER = "UPDATE emprunt SET (datefin, prolonge) = (datefin + 28, true) WHERE mail = ? AND idexemplaire = ? AND datedeb = ?";
 	private static final String SQL_SELECT_NON_RENDU = "SELECT * FROM emprunt WHERE rendu = false AND datefin < DATE(NOW())";
 	private static final String SQL_SELECT_EN_COURS_PAR_USAGER = "SELECT * FROM emprunt WHERE mail = ? AND datefin >= DATE(NOW())";
+	private static final String SQL_SELECT_EN_COURS_PAR_USAGER_BIENTOT_EXPIRE = "SELECT * FROM emprunt WHERE mail = ? AND rendu = false AND datefin >= DATE(NOW()) AND datefin < (DATE(NOW()) + (interval '1 day' * 5))";
 	private static final String SQL_SELECT_NON_RENDU_PAR_USAGER = "SELECT * FROM emprunt WHERE mail = ? AND rendu = false AND datefin < DATE(NOW())";
 	private static final String SQL_COUNT_EN_COURS_PAR_EXEMPLAIRE = "SELECT COUNT(*) FROM emprunt WHERE idexemplaire = ? AND datefin >= DATE(NOW())";
 	private static final String SQL_COUNT_NON_RENDU_PAR_EXEMPLAIRE = "SELECT COUNT(*) FROM emprunt WHERE idexemplaire = ? AND rendu = false AND datefin < DATE(NOW())";
@@ -69,6 +70,11 @@ public class EmpruntDaoImpl extends AbstractDaoImpl implements EmpruntDao {
     @Override
     public List<Emprunt> listerNonRendusParUsager(String mail) {
         return lister(SQL_SELECT_NON_RENDU_PAR_USAGER, mail);
+    }
+    
+    @Override
+    public List<Emprunt> listerParUsagerEtBientotAExpiration(String mail) {
+    	return lister(SQL_SELECT_EN_COURS_PAR_USAGER_BIENTOT_EXPIRE, mail);
     }
     
     @Override
