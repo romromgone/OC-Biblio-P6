@@ -10,12 +10,12 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java pour listerToutResponse complex type.
+ * <p>Classe Java pour listerPourChaqueOuvragePremierePositionResponse complex type.
  * 
  * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
  * 
  * <pre>
- * &lt;complexType name="listerToutResponse">
+ * &lt;complexType name="listerPourChaqueOuvragePremierePositionResponse">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
@@ -29,10 +29,10 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "listerToutResponse", propOrder = {
+@XmlType(name = "listerPourChaqueOuvragePremierePositionResponse", propOrder = {
     "_return"
 })
-public class ListerToutResponse {
+public class ListerPourChaqueOuvragePremierePositionResponse {
 
     @XmlElement(name = "return")
     protected List<Reservation> _return;

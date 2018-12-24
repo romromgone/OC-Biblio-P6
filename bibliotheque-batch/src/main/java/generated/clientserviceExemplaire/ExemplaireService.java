@@ -55,4 +55,19 @@ public interface ExemplaireService {
         @WebParam(name = "arg0", targetNamespace = "")
         Integer arg0);
 
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns generated.clientserviceExemplaire.Exemplaire
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "trouverExemplaireDisponible", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceExemplaire.TrouverExemplaireDisponible")
+    @ResponseWrapper(localName = "trouverExemplaireDisponibleResponse", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceExemplaire.TrouverExemplaireDisponibleResponse")
+    @Action(input = "http://services.webservice.ocp4.com/ExemplaireService/trouverExemplaireDisponibleRequest", output = "http://services.webservice.ocp4.com/ExemplaireService/trouverExemplaireDisponibleResponse")
+    public Exemplaire trouverExemplaireDisponible(
+        @WebParam(name = "arg0", targetNamespace = "")
+        Integer arg0);
+
 }

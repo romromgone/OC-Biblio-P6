@@ -23,6 +23,16 @@ public class ReservationService extends AbstractService {
 	}
 	
 	@WebMethod
+	public List<Reservation> listerPourChaqueOuvragePremierePosition() {
+		return getDaoFactory().getReservationDao().listerPourChaqueOuvragePremierePosition();
+	}
+	
+	@WebMethod
+	public List<Reservation> listerDelaiDepasse() {
+		return getDaoFactory().getReservationDao().listerDelaiDepasse();
+	}
+	
+	@WebMethod
 	public void ajouter(String mailUsager, Integer idOuvrage) {
 		ReservationDao reservationDao = getDaoFactory().getReservationDao();
 		
@@ -51,5 +61,11 @@ public class ReservationService extends AbstractService {
 		return reservationDao.enumererParOuvrage(idOuvrage);
 	}
 	
+	@WebMethod
+	public void ajouterTSMailEnvoye(String mailUsager, Integer idOuvrage) {
+		ReservationDao reservationDao = getDaoFactory().getReservationDao();
+		
+		reservationDao.ajouterTSMailEnvoye(mailUsager, idOuvrage);
+	}
 
 }

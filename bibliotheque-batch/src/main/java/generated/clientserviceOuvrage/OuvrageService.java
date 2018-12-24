@@ -39,6 +39,21 @@ public interface OuvrageService {
 
     /**
      * 
+     * @param arg0
+     * @return
+     *     returns generated.clientserviceOuvrage.Ouvrage
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "trouverOuvrage", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceOuvrage.TrouverOuvrage")
+    @ResponseWrapper(localName = "trouverOuvrageResponse", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceOuvrage.TrouverOuvrageResponse")
+    @Action(input = "http://services.webservice.ocp4.com/OuvrageService/trouverOuvrageRequest", output = "http://services.webservice.ocp4.com/OuvrageService/trouverOuvrageResponse")
+    public Ouvrage trouverOuvrage(
+        @WebParam(name = "arg0", targetNamespace = "")
+        Integer arg0);
+
+    /**
+     * 
      * @param arg1
      * @param arg0
      * @return
@@ -59,16 +74,16 @@ public interface OuvrageService {
      * 
      * @param arg0
      * @return
-     *     returns generated.clientserviceOuvrage.Ouvrage
+     *     returns java.util.List<generated.clientserviceOuvrage.Ouvrage>
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "trouverOuvrage", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceOuvrage.TrouverOuvrage")
-    @ResponseWrapper(localName = "trouverOuvrageResponse", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceOuvrage.TrouverOuvrageResponse")
-    @Action(input = "http://services.webservice.ocp4.com/OuvrageService/trouverOuvrageRequest", output = "http://services.webservice.ocp4.com/OuvrageService/trouverOuvrageResponse")
-    public Ouvrage trouverOuvrage(
+    @RequestWrapper(localName = "rechercherParTitre", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceOuvrage.RechercherParTitre")
+    @ResponseWrapper(localName = "rechercherParTitreResponse", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceOuvrage.RechercherParTitreResponse")
+    @Action(input = "http://services.webservice.ocp4.com/OuvrageService/rechercherParTitreRequest", output = "http://services.webservice.ocp4.com/OuvrageService/rechercherParTitreResponse")
+    public List<Ouvrage> rechercherParTitre(
         @WebParam(name = "arg0", targetNamespace = "")
-        Integer arg0);
+        String arg0);
 
     /**
      * 
@@ -78,10 +93,10 @@ public interface OuvrageService {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "rechercherParTitre", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceOuvrage.RechercherParTitre")
-    @ResponseWrapper(localName = "rechercherParTitreResponse", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceOuvrage.RechercherParTitreResponse")
-    @Action(input = "http://services.webservice.ocp4.com/OuvrageService/rechercherParTitreRequest", output = "http://services.webservice.ocp4.com/OuvrageService/rechercherParTitreResponse")
-    public List<Ouvrage> rechercherParTitre(
+    @RequestWrapper(localName = "rechercherParAuteur", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceOuvrage.RechercherParAuteur")
+    @ResponseWrapper(localName = "rechercherParAuteurResponse", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceOuvrage.RechercherParAuteurResponse")
+    @Action(input = "http://services.webservice.ocp4.com/OuvrageService/rechercherParAuteurRequest", output = "http://services.webservice.ocp4.com/OuvrageService/rechercherParAuteurResponse")
+    public List<Ouvrage> rechercherParAuteur(
         @WebParam(name = "arg0", targetNamespace = "")
         String arg0);
 
@@ -102,21 +117,6 @@ public interface OuvrageService {
         String arg0,
         @WebParam(name = "arg1", targetNamespace = "")
         String arg1);
-
-    /**
-     * 
-     * @param arg0
-     * @return
-     *     returns java.util.List<generated.clientserviceOuvrage.Ouvrage>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "rechercherParAuteur", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceOuvrage.RechercherParAuteur")
-    @ResponseWrapper(localName = "rechercherParAuteurResponse", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceOuvrage.RechercherParAuteurResponse")
-    @Action(input = "http://services.webservice.ocp4.com/OuvrageService/rechercherParAuteurRequest", output = "http://services.webservice.ocp4.com/OuvrageService/rechercherParAuteurResponse")
-    public List<Ouvrage> rechercherParAuteur(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0);
 
     /**
      * 
