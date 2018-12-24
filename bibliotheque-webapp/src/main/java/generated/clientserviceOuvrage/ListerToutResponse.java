@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="return" type="{http://services.webservice.ocp4.com/}ouvrage" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="return" type="{http://services.webservice.ocp4.com/}reservation" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -35,7 +35,7 @@ import javax.xml.bind.annotation.XmlType;
 public class ListerToutResponse {
 
     @XmlElement(name = "return")
-    protected List<Ouvrage> _return;
+    protected List<Reservation> _return;
 
     /**
      * Gets the value of the return property.
@@ -55,13 +55,13 @@ public class ListerToutResponse {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Ouvrage }
+     * {@link Reservation }
      * 
      * 
      */
-    public List<Ouvrage> getReturn() {
+    public List<Reservation> getReturn() {
         if (_return == null) {
-            _return = new ArrayList<Ouvrage>();
+            _return = new ArrayList<Reservation>();
         }
         return this._return;
     }

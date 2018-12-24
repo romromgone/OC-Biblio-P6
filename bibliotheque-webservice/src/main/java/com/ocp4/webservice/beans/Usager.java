@@ -7,6 +7,7 @@ public class Usager {
 	private String nom;
 	private String prenom;
 	private String telephone;
+	private Boolean optionRappel;
 	
 	
 	public String getMail() {
@@ -44,4 +45,11 @@ public class Usager {
 		this.telephone = telephone;
 	}
 	
+	public Boolean getOptionRappel() {
+		return optionRappel;
+	}
+	public void setOptionRappel(Boolean optionRappel) {
+		this.optionRappel = optionRappel;
+	}
+		
 }

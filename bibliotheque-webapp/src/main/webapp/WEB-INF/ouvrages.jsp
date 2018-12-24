@@ -36,30 +36,53 @@
 							      <th scope="col">Classification</th>
 							      <th scope="col">Résumé</th>
 							      <th scope="col">Exemplaires disponibles</th>
+							      <th scope="col">Nombre de réservations</th>
+							      <th scope="col">Prochaine date de retour</th>
+							      <th scope="col"></th>
 							    </tr>
 							  </thead>
 							  <tbody>
-							  <tr>
-							  	<s:iterator value="listeRechercheOuvrages"> 		       									    
-							      <td><s:property value="titre" /></td>
-							      <td><s:property value="auteur" /></td>
-							      <td><s:property value="classification" /></td>
-							      <td>
-							      	<details>
-											  <summary>Voir la description</summary>
-											  <p><s:property value="resume" /></p>
-											</details>									      	
-							      </td>							     
-							      <td><b><s:property value="nbExemplairesDispos" /></b></td>
-				        	</s:iterator>	
-						    </tr>
-							    						   
+							  	<s:iterator value="listeRechercheOuvrages"> 	
+							  		<tr>	       									    
+								      <td><b><s:property value="titre" /></b></td>
+								      <td><s:property value="auteur" /></td>
+								      <td><s:property value="classification" /></td>
+								      <td>
+								      	<details>
+												  <summary>Voir la description</summary>
+												  <p><s:property value="resume" /></p>
+												</details>									      	
+								      </td>							     
+								      <td><b><s:property value="nbExemplairesDispos" /></b></td>
+								      <td>
+								      	<s:if test="%{nbExemplairesDispos == 0}">
+								      		<s:property value="nbReservations" />
+								      	</s:if>
+							      	</td>
+							      	<td>
+								      	<s:if test="%{nbExemplairesDispos == 0}">
+								      		<s:property value="dateRetourPlusProche" />
+								      	</s:if>
+							      	</td>
+								      <td>
+								      <s:set var="bool_val" value="true" />	      	
+								      	<s:if test="%{nbExemplairesDispos == 0}">
+									      	<s:form method="post" action="reserver" id="form" name="form" >
+									      		<s:hidden name="idOuvrage" id="idOuvrage" />
+									      		<s:submit class="btn btn-info btn-sm" value="Réserver" />
+									      	</s:form>
+								      	</s:if>
+							      	</td>
+						      	</tr>	
+				        	</s:iterator>			    						   
 							  </tbody>
-							</table>
+							</table>					
 						</div>
 	      			
 	     	  </div>
 	       </div>
+	       <s:actionmessage style="text-align: center; padding-top: 20px; color: green;"/>
+	       <s:actionerror style="text-align: center; padding-top: 20px;"/>
 	     </div>
       
     </main>

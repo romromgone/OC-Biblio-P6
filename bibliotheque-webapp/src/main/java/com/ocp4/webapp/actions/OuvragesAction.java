@@ -21,18 +21,32 @@ import generated.clientserviceExemplaire.ExemplaireService_Service;
 import generated.clientserviceOuvrage.Ouvrage;
 import generated.clientserviceOuvrage.OuvrageService;
 import generated.clientserviceOuvrage.OuvrageService_Service;
+import generated.clientserviceReservation.ReservationService;
+import generated.clientserviceReservation.ReservationService_Service;
 import generated.clientserviceUsager.Usager;
 
 
 public class OuvragesAction  extends ActionSupport implements SessionAware {
+	private Integer idOuvrage;
 	private String titre;
 	private String auteur;
 	private Usager usager;
 	private List<Ouvrage> listeRechercheOuvrages;
+	private int nbReservations;
 	private int nbExemplairesDispos;
+	private Boolean listeReservationsComplete;
+	private Boolean enCoursDEmprunt;
+	private String dateRetourPlusProche;
 	private Map<String, Object> session;
 	
 
+	public Integer getIdOuvrage() {
+		return idOuvrage;
+	}
+	public void setIdOuvrage(Integer idOuvrage) {
+		this.idOuvrage = idOuvrage;
+	}
+	
 	public String getTitre() {
 		return titre;
 	}
@@ -55,8 +69,24 @@ public class OuvragesAction  extends ActionSupport implements SessionAware {
 		return listeRechercheOuvrages;
 	}
 
+	public int getNbReservations() {
+		return nbReservations;
+	}
+	
 	public int getNbExemplairesDispos() {
 		return nbExemplairesDispos;
+	}
+	
+	public Boolean getListeReservationComplete() {
+		return listeReservationsComplete;
+	}
+		
+	public Boolean getEnCoursDEmprunt() {
+		return enCoursDEmprunt;
+	}
+	
+	public String getDateRetourPlusProche() {
+		return dateRetourPlusProche;
 	}
 	
 	public Map<String, Object> getSession() {
@@ -78,10 +108,17 @@ public class OuvragesAction  extends ActionSupport implements SessionAware {
         	return ActionSupport.ERROR;
         }
         else {
-        	try {        		
+        	try { 
         		listeRechercheOuvrages = getOuvrageService().rechercherParTitreEtAuteur(titre, auteur);
         		for (Ouvrage ouvrage : listeRechercheOuvrages) {
-        		    List<Edition> listeEditions = getEditionService().listerParOuvrage(ouvrage.getId());
+        			idOuvrage = ouvrage.getId();
+        			
+        			nbReservations = getReservationService().enumererParOuvrage(idOuvrage);
+        			dateRetourPlusProche = getEmpruntService().getDateRetourPlusProcheParOuvrage(idOuvrage);
+        			enCoursDEmprunt = getOuvrageService().enCoursDEmprunt(idOuvrage, usager.getMail());
+        			listeReservationsComplete = getOuvrageService().listeReservationsComplete(idOuvrage);
+        			
+        		    List<Edition> listeEditions = getEditionService().listerParOuvrage(idOuvrage);
         		    for (Edition edition : listeEditions) {
         		    	List<Exemplaire> listeExemplaires = getExemplaireService().listerParEdition(edition.getIsbn());
         		    	for (Exemplaire exemplaire : listeExemplaires) {
@@ -94,6 +131,35 @@ public class OuvragesAction  extends ActionSupport implements SessionAware {
         		vResult = ActionSupport.SUCCESS;  		
         	} catch (RuntimeException e) {
         		this.addActionError("Erreur de la recherche" + e);
+            	return ActionSupport.ERROR;
+        	}    	
+        }
+        return vResult; 	
+	}
+	
+	public String doReserver() throws ParseException_Exception {
+		String vResult = ActionSupport.INPUT;
+		
+		usager = (Usager) session.get("usager");
+        if (usager == null) {
+        	this.addActionError("Vous avez été déconnecté");
+        	return ActionSupport.ERROR;
+        }
+        else {
+        	try {
+        		if (getOuvrageService().enCoursDEmprunt(idOuvrage, usager.getMail())) {
+        			this.addActionError("Vous avez un emprunt en cours pour cet ouvrage");
+                	return ActionSupport.ERROR;
+        		} else if (getOuvrageService().listeReservationsComplete(idOuvrage)) {
+        			this.addActionError("La liste de réservation est complète pour cet ouvrage");
+                	return ActionSupport.ERROR;
+				} else
+        			getReservationService().ajouter(usager.getMail(), idOuvrage);
+        			this.addActionMessage("Réservation effectuée");
+                	vResult = ActionSupport.SUCCESS;
+        		
+        	} catch (RuntimeException e) {
+        		this.addActionError("Erreur de réservation");
             	return ActionSupport.ERROR;
         	}    	
         }
@@ -144,6 +210,36 @@ public class OuvragesAction  extends ActionSupport implements SessionAware {
 		ExemplaireService_Service exemplaireServiceService = new ExemplaireService_Service(wsdlLocationExemplaire);
 		exemplaireService = exemplaireServiceService.getExemplaireServicePort(); 
 		return exemplaireService;
+    }
+	
+	private ReservationService getReservationService() {
+		ReservationService reservationService;
+    	URL wsdlLocationReservation = null;
+    	
+    	try {
+    		wsdlLocationReservation = new URL(getText("WSDLLocationReservation"));
+		} catch (MalformedURLException e) {		
+			e.printStackTrace();
+		}
+
+		ReservationService_Service reservationServiceService = new ReservationService_Service(wsdlLocationReservation);
+		reservationService = reservationServiceService.getReservationServicePort(); 
+		return reservationService;
+    }
+	
+	private EmpruntService getEmpruntService() {
+		EmpruntService empruntService;
+    	URL wsdlLocationEmprunt = null;
+    	
+    	try {
+    		wsdlLocationEmprunt = new URL(getText("WSDLLocationEmprunt"));
+		} catch (MalformedURLException e) {		
+			e.printStackTrace();
+		}
+
+		EmpruntService_Service empruntServiceService = new EmpruntService_Service(wsdlLocationEmprunt);
+		empruntService = empruntServiceService.getEmpruntServicePort(); 
+		return empruntService;
     }
 
 }

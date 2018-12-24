@@ -13,7 +13,7 @@ import com.ocp4.batch.beans.WsdlLocation;
 
 
 @SpringBootApplication(scanBasePackages = "com.ocp4.batch")
-@PropertySource("file:${application.home}/conf/batch.properties")
+@PropertySource("file:D:/Documents/Romain/Documents/eclipse-workspace/OC-Biblio-P6/bibliotheque-batch/src/data/conf/batch.properties")
 @EnableScheduling
 public class BatchApp {
 	@Value("${WSDLLocationUsager}")
@@ -26,6 +26,8 @@ public class BatchApp {
     private String wsdlLocationExemplaire;
     @Value("${WSDLLocationEmprunt}")
     private String wsdlLocationEmprunt;
+    @Value("${WSDLLocationReservation}")
+    private String wsdlLocationReservation;
     
     @Value("${emailHost}")
     private String emailHost;
@@ -42,8 +44,7 @@ public class BatchApp {
     public static void main(String[] args) {
     	ApplicationContext ctx = SpringApplication.run(BatchApp.class, args);
 		BatchTask batchTask = (BatchTask) ctx.getBean("batchTask");
-		System.out.println("Batch lancé !");
-		batchTask.Task();
+		batchTask.LaunchTasks();
 	}
 
     
@@ -55,6 +56,7 @@ public class BatchApp {
     	wsdlLocation.setWsdlLocationEdition(wsdlLocationEdition);
     	wsdlLocation.setWsdlLocationExemplaire(wsdlLocationExemplaire);
     	wsdlLocation.setWsdlLocationEmprunt(wsdlLocationEmprunt);
+    	wsdlLocation.setWsdlLocationReservation(wsdlLocationReservation);
         return wsdlLocation;
     }
 

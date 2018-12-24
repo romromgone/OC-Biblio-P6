@@ -42,6 +42,21 @@ public interface OuvrageService {
 
     /**
      * 
+     * @param arg0
+     * @return
+     *     returns java.util.List<generated.clientserviceOuvrage.Ouvrage>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "rechercherParAuteur", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceOuvrage.RechercherParAuteur")
+    @ResponseWrapper(localName = "rechercherParAuteurResponse", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceOuvrage.RechercherParAuteurResponse")
+    @Action(input = "http://services.webservice.ocp4.com/OuvrageService/rechercherParAuteurRequest", output = "http://services.webservice.ocp4.com/OuvrageService/rechercherParAuteurResponse")
+    public List<Ouvrage> rechercherParAuteur(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0);
+
+    /**
+     * 
      * @param arg1
      * @param arg0
      * @return
@@ -62,28 +77,46 @@ public interface OuvrageService {
      * 
      * @param arg0
      * @return
-     *     returns java.util.List<generated.clientserviceOuvrage.Ouvrage>
+     *     returns java.lang.Boolean
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "rechercherParAuteur", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceOuvrage.RechercherParAuteur")
-    @ResponseWrapper(localName = "rechercherParAuteurResponse", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceOuvrage.RechercherParAuteurResponse")
-    @Action(input = "http://services.webservice.ocp4.com/OuvrageService/rechercherParAuteurRequest", output = "http://services.webservice.ocp4.com/OuvrageService/rechercherParAuteurResponse")
-    public List<Ouvrage> rechercherParAuteur(
+    @RequestWrapper(localName = "listeReservationsComplete", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceOuvrage.ListeReservationsComplete")
+    @ResponseWrapper(localName = "listeReservationsCompleteResponse", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceOuvrage.ListeReservationsCompleteResponse")
+    @Action(input = "http://services.webservice.ocp4.com/OuvrageService/listeReservationsCompleteRequest", output = "http://services.webservice.ocp4.com/OuvrageService/listeReservationsCompleteResponse")
+    public Boolean listeReservationsComplete(
         @WebParam(name = "arg0", targetNamespace = "")
-        String arg0);
+        Integer arg0);
 
     /**
      * 
      * @return
-     *     returns java.util.List<generated.clientserviceOuvrage.Ouvrage>
+     *     returns java.util.List<generated.clientserviceOuvrage.Reservation>
      */
     @WebMethod
     @WebResult(targetNamespace = "")
     @RequestWrapper(localName = "listerTout", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceOuvrage.ListerTout")
     @ResponseWrapper(localName = "listerToutResponse", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceOuvrage.ListerToutResponse")
     @Action(input = "http://services.webservice.ocp4.com/OuvrageService/listerToutRequest", output = "http://services.webservice.ocp4.com/OuvrageService/listerToutResponse")
-    public List<Ouvrage> listerTout();
+    public List<Reservation> listerTout();
+
+    /**
+     * 
+     * @param arg1
+     * @param arg0
+     * @return
+     *     returns java.lang.Boolean
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "enCoursDEmprunt", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceOuvrage.EnCoursDEmprunt")
+    @ResponseWrapper(localName = "enCoursDEmpruntResponse", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceOuvrage.EnCoursDEmpruntResponse")
+    @Action(input = "http://services.webservice.ocp4.com/OuvrageService/enCoursDEmpruntRequest", output = "http://services.webservice.ocp4.com/OuvrageService/enCoursDEmpruntResponse")
+    public Boolean enCoursDEmprunt(
+        @WebParam(name = "arg0", targetNamespace = "")
+        Integer arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        String arg1);
 
     /**
      * 

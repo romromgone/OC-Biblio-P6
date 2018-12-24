@@ -16,6 +16,8 @@ public class DaoFactory {
 	private ExemplaireDao exemplaireDao;
 	@Inject
 	private EmpruntDao empruntDao;
+	@Inject
+	private ReservationDao reservationDao;
     
 
     /* Méthodes de récupération de l'implémentation des différents DAO */
@@ -33,6 +35,9 @@ public class DaoFactory {
     }
     public EmpruntDao getEmpruntDao() {
         return empruntDao;
+    }
+    public ReservationDao getReservationDao( ) {
+    	return reservationDao;
     }
     
 }

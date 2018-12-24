@@ -29,21 +29,6 @@ public interface EditionService {
      * 
      * @param arg0
      * @return
-     *     returns java.util.List<generated.clientserviceEdition.Edition>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listerParOuvrage", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceEdition.ListerParOuvrage")
-    @ResponseWrapper(localName = "listerParOuvrageResponse", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceEdition.ListerParOuvrageResponse")
-    @Action(input = "http://services.webservice.ocp4.com/EditionService/listerParOuvrageRequest", output = "http://services.webservice.ocp4.com/EditionService/listerParOuvrageResponse")
-    public List<Edition> listerParOuvrage(
-        @WebParam(name = "arg0", targetNamespace = "")
-        Integer arg0);
-
-    /**
-     * 
-     * @param arg0
-     * @return
      *     returns generated.clientserviceEdition.Edition
      */
     @WebMethod
@@ -54,5 +39,20 @@ public interface EditionService {
     public Edition trouverEdition(
         @WebParam(name = "arg0", targetNamespace = "")
         String arg0);
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns java.util.List<generated.clientserviceEdition.Edition>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listerParOuvrage", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceEdition.ListerParOuvrage")
+    @ResponseWrapper(localName = "listerParOuvrageResponse", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceEdition.ListerParOuvrageResponse")
+    @Action(input = "http://services.webservice.ocp4.com/EditionService/listerParOuvrageRequest", output = "http://services.webservice.ocp4.com/EditionService/listerParOuvrageResponse")
+    public List<Edition> listerParOuvrage(
+        @WebParam(name = "arg0", targetNamespace = "")
+        Integer arg0);
 
 }

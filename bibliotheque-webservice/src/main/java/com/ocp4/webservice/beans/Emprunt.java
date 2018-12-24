@@ -1,7 +1,5 @@
 package com.ocp4.webservice.beans;
 
-import java.sql.Date;
-
 
 public class Emprunt {
 	private String dateDeb;

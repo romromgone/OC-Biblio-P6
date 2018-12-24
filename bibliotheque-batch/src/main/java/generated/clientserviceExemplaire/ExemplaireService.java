@@ -29,6 +29,21 @@ public interface ExemplaireService {
      * 
      * @param arg0
      * @return
+     *     returns java.util.List<generated.clientserviceExemplaire.Exemplaire>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listerParEdition", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceExemplaire.ListerParEdition")
+    @ResponseWrapper(localName = "listerParEditionResponse", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceExemplaire.ListerParEditionResponse")
+    @Action(input = "http://services.webservice.ocp4.com/ExemplaireService/listerParEditionRequest", output = "http://services.webservice.ocp4.com/ExemplaireService/listerParEditionResponse")
+    public List<Exemplaire> listerParEdition(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0);
+
+    /**
+     * 
+     * @param arg0
+     * @return
      *     returns generated.clientserviceExemplaire.Exemplaire
      */
     @WebMethod
@@ -44,15 +59,15 @@ public interface ExemplaireService {
      * 
      * @param arg0
      * @return
-     *     returns java.util.List<generated.clientserviceExemplaire.Exemplaire>
+     *     returns generated.clientserviceExemplaire.Exemplaire
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listerParEdition", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceExemplaire.ListerParEdition")
-    @ResponseWrapper(localName = "listerParEditionResponse", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceExemplaire.ListerParEditionResponse")
-    @Action(input = "http://services.webservice.ocp4.com/ExemplaireService/listerParEditionRequest", output = "http://services.webservice.ocp4.com/ExemplaireService/listerParEditionResponse")
-    public List<Exemplaire> listerParEdition(
+    @RequestWrapper(localName = "trouverExemplaireDisponible", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceExemplaire.TrouverExemplaireDisponible")
+    @ResponseWrapper(localName = "trouverExemplaireDisponibleResponse", targetNamespace = "http://services.webservice.ocp4.com/", className = "generated.clientserviceExemplaire.TrouverExemplaireDisponibleResponse")
+    @Action(input = "http://services.webservice.ocp4.com/ExemplaireService/trouverExemplaireDisponibleRequest", output = "http://services.webservice.ocp4.com/ExemplaireService/trouverExemplaireDisponibleResponse")
+    public Exemplaire trouverExemplaireDisponible(
         @WebParam(name = "arg0", targetNamespace = "")
-        String arg0);
+        Integer arg0);
 
 }

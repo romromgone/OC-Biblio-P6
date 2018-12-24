@@ -32,7 +32,7 @@
 							  <tbody>				  
 							  	<s:iterator value="empruntsEnCours">  						  		      					
 								    <tr>
-								      <td><s:property value="exemplaire.edition.ouvrage.titre" /></td>
+								      <td><b><s:property value="exemplaire.edition.ouvrage.titre" /></b></td>
 								      <td><s:property value="exemplaire.edition.ouvrage.auteur" /></td>
 								      <td><s:property value="dateDeb" /></td>
 								      <td><span class="text-info"><s:property value="dateFin" /></span></td>
