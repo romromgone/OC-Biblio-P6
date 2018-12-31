@@ -13,7 +13,7 @@ import com.ocp4.batch.beans.WsdlLocation;
 
 
 @SpringBootApplication(scanBasePackages = "com.ocp4.batch")
-@PropertySource("file:D:/Documents/Romain/Documents/eclipse-workspace/OC-Biblio-P6/bibliotheque-batch/src/data/conf/batch.properties")
+@PropertySource("file:${application.home}/conf/batch.properties")
 @EnableScheduling
 public class BatchApp {
 	@Value("${WSDLLocationUsager}")

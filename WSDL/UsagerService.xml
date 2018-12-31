@@ -4,6 +4,18 @@
 <xsd:import namespace="http://services.webservice.ocp4.com/" schemaLocation="http://localhost:8085/bibliotheque-webservice/UsagerService?xsd=1"/>
 </xsd:schema>
 </types>
+<message name="listerParOptionRappel">
+<part name="parameters" element="tns:listerParOptionRappel"/>
+</message>
+<message name="listerParOptionRappelResponse">
+<part name="parameters" element="tns:listerParOptionRappelResponse"/>
+</message>
+<message name="modifierOptionRappel">
+<part name="parameters" element="tns:modifierOptionRappel"/>
+</message>
+<message name="modifierOptionRappelResponse">
+<part name="parameters" element="tns:modifierOptionRappelResponse"/>
+</message>
 <message name="trouverUsager">
 <part name="parameters" element="tns:trouverUsager"/>
 </message>
@@ -11,6 +23,14 @@
 <part name="parameters" element="tns:trouverUsagerResponse"/>
 </message>
 <portType name="UsagerService">
+<operation name="listerParOptionRappel">
+<input wsam:Action="http://services.webservice.ocp4.com/UsagerService/listerParOptionRappelRequest" message="tns:listerParOptionRappel"/>
+<output wsam:Action="http://services.webservice.ocp4.com/UsagerService/listerParOptionRappelResponse" message="tns:listerParOptionRappelResponse"/>
+</operation>
+<operation name="modifierOptionRappel">
+<input wsam:Action="http://services.webservice.ocp4.com/UsagerService/modifierOptionRappelRequest" message="tns:modifierOptionRappel"/>
+<output wsam:Action="http://services.webservice.ocp4.com/UsagerService/modifierOptionRappelResponse" message="tns:modifierOptionRappelResponse"/>
+</operation>
 <operation name="trouverUsager">
 <input wsam:Action="http://services.webservice.ocp4.com/UsagerService/trouverUsagerRequest" message="tns:trouverUsager"/>
 <output wsam:Action="http://services.webservice.ocp4.com/UsagerService/trouverUsagerResponse" message="tns:trouverUsagerResponse"/>
@@ -18,6 +38,24 @@
 </portType>
 <binding name="UsagerServicePortBinding" type="tns:UsagerService">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+<operation name="listerParOptionRappel">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="modifierOptionRappel">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
 <operation name="trouverUsager">
 <soap:operation soapAction=""/>
 <input>

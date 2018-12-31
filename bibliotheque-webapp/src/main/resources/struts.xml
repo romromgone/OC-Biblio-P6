@@ -54,8 +54,8 @@
 				    <interceptor-ref name="defaultStack" />
 				    
     				<result name="input">/WEB-INF/infospersos.jsp</result>
-    				<result type="redirectAction">infospersos</result> 
-    				<result name="error">index.jsp</result>
+    				<result type="redirectAction">infospersos</result>   
+    				<result name="error">index.jsp</result>		
 				</action>
 				
 				<!-- Action "emprunts" -->
@@ -111,7 +111,6 @@
 				    </interceptor-ref>
 				    <interceptor-ref name="defaultStack" />
 				    
-				    <result name="input">/WEB-INF/reservations.jsp</result>
     				<result name="success">/WEB-INF/reservations.jsp</result>
     				<result name="error">index.jsp</result>					
 				</action>
