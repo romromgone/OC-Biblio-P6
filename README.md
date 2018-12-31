@@ -4,7 +4,8 @@
 
 #### Base de données :
 - Installer PostgreSQL 10.
-- Copier-coller dans psql (SQL Shell) le contenu de fichier "Script_SQL.txt" afin de créer la base, les tables, et de la peupler avec le petit jeu de données.
+- Pour migrer depuis le projet 4 : copier-coller dans psql (SQL Shell) le contenu du fichier "Script_SQL_Migration.txt" afin de mettre à jour la base.
+- Sinon copier-coller dans psql le contenu du fichier "Script_SQL.txt" puis "Script_SQL_Migration.txt" afin de créer la base, les tables, et de la peupler avec le petit jeu de données.
 
 #### WebService :
 - Installer Glassfish 5.0-Full Platform.
@@ -22,9 +23,9 @@
 
 La page d'accueil de la webapp est disponible à l'adresse suivante : http://localhost:8080/bibliotheque-webapp/
 
-#### Batch :
+#### Batchs :
 - Dézipper "bibliotheque-batch-archive-deploy.zip" n'importe où.
 - Modifier le fichier de propiétés "bibliotheque-batch-0.0.1-SNAPSHOT\conf\batch.properties" contenant l'adresse des wsdl du WebService, les informations du serveur mail, et la propriété de programation d'envoie des mails. 
-- Lancer le batch : exécuter "bibliotheque-batch-0.0.1-SNAPSHOT\bin\batch.bat".
+- Lancer les batchs : exécuter "bibliotheque-batch-0.0.1-SNAPSHOT\bin\batch.bat".
 
-Le batch est maintenant en cours d'exécution et les mails seront envoyés selon la programmation choisie.
+Les batch sont maintenant en cours d'exécution et les mails seront envoyés selon la programmation choisie.
