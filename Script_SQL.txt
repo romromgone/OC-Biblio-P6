@@ -44,18 +44,6 @@ CREATE TABLE emprunt (
 	PRIMARY KEY (mail, idexemplaire, datedeb)
 );
 
-NEW
-
-CREATE TABLE reservation (
-	position	   	  integer NOT NULL,
-	tsmailenvoye    timestamp,
-	mail		        varchar(50) NOT NULL REFERENCES usager (mail),
-	idouvrage       integer NOT NULL REFERENCES ouvrage (idouvrage),
-	PRIMARY KEY (mail, idouvrage)
-);
-
-ALTER TABLE usager ADD COLUMN optionrappel boolean NOT NULL DEFAULT TRUE; 
-
 INSERT INTO usager (mail, mdp, nomuser, prenomuser, telephone) VALUES 
 ('votremail@gmail.com', 'motdepasse', 'Dupont', 'Michel', '0000000000'),
 ('romain.c-h@hotmail.fr', 'mdp', 'Camberbet', 'Romain', '0609404881');

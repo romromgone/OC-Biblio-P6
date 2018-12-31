@@ -64,6 +64,7 @@ public class InfosPersosAction extends ActionSupport implements SessionAware {
         		} else {
         			getUsagerService().modifierOptionRappel(usager.getMail(), true);
         		}
+        		vResult = ActionSupport.SUCCESS;
         		
         	} catch (RuntimeException e) {
         		this.addActionError("Erreur");
